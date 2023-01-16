@@ -1,10 +1,14 @@
 import './App.css';
+import FooterComponent from './Components/Footer/FooterComponent';
+import HeaderComponent from './Components/Header/HeaderComponent';
+import HomeView from './Views/Home/HomeView';
 
 function App() {
   return (
     <div className="App">
-      <h1>ME-revisited</h1>
-      <p>Font size text Gary allin</p>
+      <HeaderComponent />
+      <HomeView />
+      <FooterComponent />
     </div>
   );
 }
