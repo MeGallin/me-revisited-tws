@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import './HeaderComponent.css';
 
 const HeaderComponent = () => {
@@ -16,14 +17,32 @@ const HeaderComponent = () => {
         </div>
 
         <ul className={!toggleHamburger ? 'nav_links' : 'nav_links open'}>
-          <li>
-            <a href="#">About</a>
+          <li className="link">
+            <NavLink
+              onClick={() => setToggleHamburger((prev) => (prev = !prev))}
+              className={(navData) => (navData.isActive ? 'active' : '')}
+              to="/"
+            >
+              Home
+            </NavLink>
           </li>
-          <li>
-            <a href="#">Contact</a>
+          <li className="link">
+            <NavLink
+              onClick={() => setToggleHamburger((prev) => (prev = !prev))}
+              className={(navData) => (navData.isActive ? 'active' : '')}
+              to="/about"
+            >
+              About
+            </NavLink>
           </li>
-          <li>
-            <a href="#">Private</a>
+          <li className="link">
+            <NavLink
+              onClick={() => setToggleHamburger((prev) => (prev = !prev))}
+              className={(navData) => (navData.isActive ? 'active' : '')}
+              to="/contact"
+            >
+              Contact
+            </NavLink>
           </li>
         </ul>
       </nav>
