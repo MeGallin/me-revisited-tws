@@ -1,3 +1,6 @@
+:root {
+  --active-colour: rgba(200, 200, 200, 0.3);
+}
 header {
   height: var(--header-height);
 }
@@ -15,10 +18,22 @@ nav {
   height: 100%;
   float: right;
 }
-.nav_links li a {
+.link a {
   color: var(--main-bg-colour);
   text-decoration: none;
   font-size: 16px;
+}
+.link a:hover {
+  color: var(--main-font-colour);
+  background-color: var(--main-bg-colour);
+  padding: 6px 2px;
+  transition: all 0.8s ease-in-out;
+}
+.active {
+  border-bottom: 1px solid crimson;
+  background-color: var(--active-colour);
+  padding: 6px 4px;
+  font-weight: bold;
 }
 
 /* Media Queries */
