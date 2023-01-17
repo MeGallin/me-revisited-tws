@@ -1,4 +1,5 @@
 import React from 'react';
+import SpinnerComponent from '../Spinner/SpinnerComponent';
 
 const HomeComponent = () => {
   return (
