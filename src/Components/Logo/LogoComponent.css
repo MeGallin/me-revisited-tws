@@ -1,0 +1,35 @@
+.logo_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.titles {
+  position: relative;
+  font-size: 0.8em;
+  color: var(--main-font-colour);
+  -webkit-text-stroke: 1px var(--light-orange);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.titles::before {
+  content: attr(data);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  letter-spacing: 2px;
+  color: var(--main-font-colour);
+  -webkit-text-stroke: 0 var(--light-orange);
+  border-right: 2px solid var(--main-bg-colour);
+  overflow: hidden;
+  animation: animate 6s linear infinite;
+}
+@keyframes animate {
+  0% {
+    width: 0;
+  }
+  70% {
+    width: 100%;
+  }
+}
