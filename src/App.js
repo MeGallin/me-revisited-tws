@@ -3,6 +3,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import FooterComponent from './Components/Footer/FooterComponent';
 import HeaderComponent from './Components/Header/HeaderComponent';
+import SpinnerComponent from './Components/Spinner/SpinnerComponent';
 
 const HomeView = lazy(() => import('./Views/Home/HomeView'));
 const AboutView = lazy(() => import('./Views/About/AboutView'));
@@ -14,7 +15,7 @@ function App() {
     <Router>
       <div className="App">
         <HeaderComponent />
-        <Suspense fallback={'...loading'}>
+        <Suspense fallback={<SpinnerComponent />}>
           <Routes>
             <Route path="/" element={<HomeView />} exact />
             <Route path="/about" element={<AboutView />} exact />

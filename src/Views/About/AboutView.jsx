@@ -1,7 +1,12 @@
 import React from 'react';
+import AboutComponent from '../../Components/About/AboutComponent';
 
 const AboutView = () => {
-  return <section>AboutView</section>;
+  return (
+    <section>
+      <AboutComponent />
+    </section>
+  );
 };
 
 export default AboutView;

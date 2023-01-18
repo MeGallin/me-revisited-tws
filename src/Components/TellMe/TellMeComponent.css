@@ -1,0 +1,87 @@
+/* Letter styling */
+.call_me {
+  display: inline-block;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+.call_me .char1 {
+  color: red;
+  font-size: 1em;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+  -webkit-transform: rotate(-14deg);
+  -moz-transform: rotate(-14deg);
+  -o-transform: rotate(-14deg);
+  -ms-transform: rotate(-14deg);
+  transform: rotate(14deg);
+}
+.call_me .char2 {
+  color: orange;
+  font-size: 0.9em;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva,
+    Verdana, sans-serif;
+}
+.call_me .char3 {
+  color: blueviolet;
+  font-size: 1.2em;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+  transform: rotate(14deg);
+  -webkit-transform: rotate(14deg);
+  -moz-transform: rotate(14deg);
+  -o-transform: rotate(14deg);
+  -ms-transform: rotate(14deg);
+}
+.call_me .char4 {
+  color: crimson;
+  font-size: 0.6em;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  transform: rotate(-14deg);
+  -webkit-transform: rotate(-14deg);
+  -moz-transform: rotate(-14deg);
+  -o-transform: rotate(-14deg);
+  -ms-transform: rotate(-14deg);
+}
+.call_me .char5 {
+  color: cornflowerblue;
+  font-size: 1.3em;
+  font-family: 'Book Antiqua', Palatino, 'Palatino Linotype', 'Palatino LT STD',
+    Georgia, serif;
+}
+.call_me .char6 {
+  color: lightgreen;
+  font-size: 0.8em;
+  font-family: 'Courier New', Courier, 'Lucida Sans Typewriter',
+    'Lucida Typewriter', monospace;
+}
+.call_me .char7 {
+  color: salmon;
+  font-size: 0.85em;
+  font-family: 'Andale Mono', AndaleMono, monospace;
+}
+.call_me .char8 {
+  color: teal;
+  font-size: 1em;
+  font-family: Didot, 'Didot LT STD', 'Hoefler Text', Garamond,
+    'Times New Roman', serif;
+  transform: rotate(14deg);
+  -webkit-transform: rotate(14deg);
+  -moz-transform: rotate(14deg);
+  -o-transform: rotate(14deg);
+  -ms-transform: rotate(14deg);
+}
+.call_me .char9 {
+  color: turquoise;
+  font-size: 1.3em;
+  font-family: 'Book Antiqua', Palatino, 'Palatino Linotype', 'Palatino LT STD',
+    Georgia, serif;
+}
+.call_me .char10 {
+  color: yellow;
+  font-size: 0.85em;
+  font-family: 'Andale Mono', AndaleMono, monospace;
+}
+.call_me .char11 {
+  color: lightgreen;
+  font-size: 1.2em;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+}

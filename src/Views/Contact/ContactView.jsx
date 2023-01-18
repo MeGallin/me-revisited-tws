@@ -1,7 +1,12 @@
 import React from 'react';
+import ContactComponent from '../../Components/Contact/ContactComponent';
 
 const ContactView = () => {
-  return <section>ContactView</section>;
+  return (
+    <section>
+      <ContactComponent />
+    </section>
+  );
 };
 
 export default ContactView;

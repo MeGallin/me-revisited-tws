@@ -1,12 +1,10 @@
-import React from 'react';
-import SpinnerComponent from '../Spinner/SpinnerComponent';
+import TellMeComponent from '../TellMe/TellMeComponent';
 
 const HomeComponent = () => {
+  const thisIsMe = ['This', ' is', ' my', ' home', ' page!'];
   return (
     <>
-      <h1>ME-revisited</h1>
-      <h2>Home page component</h2>
-      <p>Font size text Gary allin</p>
+      <TellMeComponent text={[...thisIsMe]} />
     </>
   );
 };
