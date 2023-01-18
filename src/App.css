@@ -22,7 +22,7 @@ h3 {
   display: inline-block;
 }
 /* helper classes */
-.wrapper {
+.global_wrapper {
   border: 1px dotted red;
   height: 100%;
   display: flex;
