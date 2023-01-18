@@ -1,4 +1,5 @@
 import DateTimeComponent from '../DateTime/DateTimeComponent';
+import PageHitsComponent from '../PageHits/PageHitsComponent';
 import './FooterComponent.css';
 const FooterComponent = () => {
   return (
@@ -50,7 +51,7 @@ const FooterComponent = () => {
           </p>
         </div>
         <DateTimeComponent />
-        <div>HIT Counter to follow</div>
+        <PageHitsComponent />
       </div>
     </footer>
   );

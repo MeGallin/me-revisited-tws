@@ -22,7 +22,7 @@ const TellMeComponent = ({ text }) => {
   );
 };
 TellMeComponent.propTypes = {
-  text: PropTypes.string,
+  text: PropTypes.array,
 };
 
 export default TellMeComponent;

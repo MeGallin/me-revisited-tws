@@ -9,7 +9,7 @@ const DateTimeComponent = () => {
   useEffect(() => {
     let ignore = false;
     setInterval(() => {
-      setDateTime(moment().format('MMMM Do YYYY, h:mm:ss a'));
+      setDateTime(moment().format('MMMM Do YYYY, h:mm a'));
     }, 1000);
     if (!ignore) return () => (ignore = true);
   }, [dateTime]);

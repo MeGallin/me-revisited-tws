@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+
 import { LogoComponent } from '../Logo/LogoComponent';
 import './HeaderComponent.css';
 
 const HeaderComponent = () => {
   const [toggleHamburger, setToggleHamburger] = useState(false);
+
   return (
     <header>
       <nav>
         <LogoComponent />
-
         <div
           className="hamburger"
           onClick={() => setToggleHamburger((prev) => (prev = !prev))}
