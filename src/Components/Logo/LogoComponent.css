@@ -6,11 +6,10 @@
 }
 .titles {
   position: relative;
-  font-size: 0.8em;
-  color: var(--main-font-colour);
-  -webkit-text-stroke: 1px var(--light-orange);
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-size: 0.7em;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 1px;
+  font-weight: 200;
 }
 .titles::before {
   content: attr(data);
@@ -18,9 +17,10 @@
   top: 0;
   left: 0;
   width: 0;
-  letter-spacing: 2px;
-  color: var(--main-font-colour);
-  -webkit-text-stroke: 0 var(--light-orange);
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-decoration: solid;
+  color: var(--light-orange);
   border-right: 2px solid var(--main-bg-colour);
   overflow: hidden;
   animation: animate 6s linear infinite;
@@ -29,7 +29,10 @@
   0% {
     width: 0;
   }
-  70% {
+  50% {
     width: 100%;
+  }
+  0% {
+    width: 0;
   }
 }
