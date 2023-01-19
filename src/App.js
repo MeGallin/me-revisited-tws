@@ -16,12 +16,14 @@ function App() {
       <div className="App">
         <HeaderComponent />
         <Suspense fallback={<SpinnerComponent />}>
-          <Routes>
-            <Route path="/" element={<HomeView />} exact />
-            <Route path="/about" element={<AboutView />} exact />
-            <Route path="/contact" element={<ContactView />} exact />
-            <Route path="*" element={<ErrorView />} exact />
-          </Routes>
+          <div className="content_height_adjuster">
+            <Routes>
+              <Route path="/" element={<HomeView />} exact />
+              <Route path="/about" element={<AboutView />} exact />
+              <Route path="/contact" element={<ContactView />} exact />
+              <Route path="*" element={<ErrorView />} exact />
+            </Routes>
+          </div>
         </Suspense>
 
         <FooterComponent />
