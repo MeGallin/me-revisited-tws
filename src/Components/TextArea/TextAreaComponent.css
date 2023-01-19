@@ -15,3 +15,7 @@ textarea.invalid {
 textarea.entered {
   border-left: greenyellow 4px solid;
 }
+textarea:focus {
+  background-color: var(--main-font-colour);
+  color: var(--main-bg-colour);
+}
