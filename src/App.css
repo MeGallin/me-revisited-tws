@@ -19,6 +19,9 @@ h3 {
 
 .content_height_adjuster {
   min-height: calc(100vh - var(--header-height) - var(--footer-height));
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
   margin: 0 auto;
   overflow-y: auto;
   border: 2px solid pink;
