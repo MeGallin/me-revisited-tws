@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { LogoComponent } from '../Logo/LogoComponent';
+import LogoComponent from '../Logo/LogoComponent';
+import TellMeComponent from '../TellMe/TellMeComponent';
 import './HeaderComponent.css';
 
 const HeaderComponent = () => {
@@ -27,7 +28,7 @@ const HeaderComponent = () => {
               className={(navData) => (navData.isActive ? 'active' : '')}
               to="/"
             >
-              Home
+              <TellMeComponent text={['Home']} />
             </NavLink>
           </li>
           <li className="link">
@@ -36,7 +37,7 @@ const HeaderComponent = () => {
               className={(navData) => (navData.isActive ? 'active' : '')}
               to="/about"
             >
-              About
+              <TellMeComponent text={['about']} />
             </NavLink>
           </li>
           <li className="link">
@@ -45,7 +46,7 @@ const HeaderComponent = () => {
               className={(navData) => (navData.isActive ? 'active' : '')}
               to="/contact"
             >
-              Contact
+              <TellMeComponent text={['contact']} />
             </NavLink>
           </li>
         </ul>

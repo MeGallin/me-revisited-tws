@@ -1,6 +1,6 @@
 import './LogoComponent.css';
 
-export const LogoComponent = () => {
+const LogoComponent = () => {
   const title = `webDeveloper`;
 
   return (
@@ -14,3 +14,5 @@ export const LogoComponent = () => {
     </>
   );
 };
+
+export default LogoComponent;
