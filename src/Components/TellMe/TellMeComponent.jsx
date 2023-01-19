@@ -1,8 +1,16 @@
+import { useEffect, useState } from 'react';
 import './TellMeComponent.css';
 import PropTypes from 'prop-types';
 
 const TellMeComponent = ({ text }) => {
-  const randomVal = Number(Math.floor(Math.random() * 10) + 1);
+  const [randomVal, setRandomVal] = useState('');
+
+  useEffect(() => {
+    let ignore = false;
+    setRandomVal(Number(Math.floor(Math.random() * 10) + 1));
+    if (!ignore) return () => (ignore = true);
+  }, []);
+
   return (
     <div className="call_me">
       <h1>
