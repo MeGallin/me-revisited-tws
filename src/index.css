@@ -8,6 +8,7 @@
   --main-font-colour: whitesmoke;
   --border-colour: rgba(200, 200, 200, 0.5);
   --danger: crimson;
+  --warning: rgba(240, 173, 78, 1);
   --header-height: 60px;
   --footer-height: 80px;
 }

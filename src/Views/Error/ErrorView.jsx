@@ -1,6 +1,6 @@
 const ErrorView = () => {
   return (
-    <section
+    <div
       style={{
         display: 'flex',
         justifyContent: 'center',
@@ -19,7 +19,7 @@ const ErrorView = () => {
           Please navigate back by using the navigation at the top.
         </p>
       </div>
-    </section>
+    </div>
   );
 };
 

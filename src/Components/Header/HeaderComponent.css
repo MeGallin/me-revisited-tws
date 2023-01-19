@@ -59,10 +59,11 @@ nav {
     right: 5%;
     top: 50%;
     transform: translate(-5%, -50%);
-    z-index: 2;
+    z-index: 20;
   }
   .nav_links {
     position: fixed;
+    z-index: 10;
     background-color: var(--main-bg-colour);
     height: 100vh;
     width: 100%;
