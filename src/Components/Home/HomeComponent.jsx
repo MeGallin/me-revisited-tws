@@ -3,9 +3,11 @@ import TellMeComponent from '../TellMe/TellMeComponent';
 const HomeComponent = () => {
   const thisIsMe = ['This', ' is', ' my', ' home', ' page!'];
   return (
-    <>
-      <TellMeComponent text={[...thisIsMe]} />
-    </>
+    <fieldset className="fieldSet">
+      <legend>
+        <TellMeComponent text={[...thisIsMe]} />
+      </legend>
+    </fieldset>
   );
 };
 

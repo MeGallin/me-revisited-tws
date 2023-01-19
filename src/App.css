@@ -2,7 +2,7 @@
 body {
   font-family: 'Signika', sans-serif;
   font-family: 'Comfortaa', cursive;
-  background-color: var(--main-bg-colour);
+  background-color: black;
   color: var(--main-font-colour);
 }
 
@@ -24,12 +24,10 @@ h3 {
   gap: 1em;
   margin: 0 auto;
   overflow-y: auto;
-  border: 2px solid pink;
 }
 
 /* helper classes */
 .global_wrapper {
-  border: 1px dotted red;
   height: 100%;
   display: flex;
   justify-content: center;
