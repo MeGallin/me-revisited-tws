@@ -1,0 +1,39 @@
+:root {
+  --toaster-success: #14a44d;
+  --toaster-danger: crimson;
+  --toaster-warning: #e4a11b;
+  --toaster-height: auto;
+  --toaster-width: 100%;
+}
+
+.toaster {
+  display: flex;
+  justify-content: space-between;
+  height: var(--toaster-height);
+  padding: 0.3em;
+  outline: 0.1rem solid white;
+  outline-offset: -0.3rem;
+}
+
+.toaster_content {
+  padding-left: 0.5em;
+}
+.toaster h1 {
+  margin-left: 0.5em;
+  display: inline-block;
+}
+.toaster_times {
+  opacity: 0.8;
+}
+.toaster_times:hover {
+  cursor: pointer;
+  opacity: 1;
+  transition: all 0.8s ease-in;
+}
+
+.toaster.success {
+  background-color: var(--toaster-success);
+}
+.toaster.error {
+  background-color: var(--toaster-danger);
+}

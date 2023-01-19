@@ -27,8 +27,8 @@ input[type='password']:focus,
 input[type='search']:focus,
 input[type='tel']:focus,
 input[type='number']:focus {
-  background-color: rgba(255, 255, 255, 1);
-  color: var(--warning);
+  background-color: var(--main-font-colour);
+  color: var(--main-bg-colour);
 }
 .validation-error {
   color: var(--danger);

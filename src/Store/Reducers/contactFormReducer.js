@@ -1,6 +1,7 @@
 import {
   CONTACT_FORM_FAILURE,
   CONTACT_FORM_REQUEST,
+  CONTACT_FORM_RESET,
   CONTACT_FORM_SUCCESS,
 } from '../Constants/contactFormConstants';
 
@@ -14,6 +15,8 @@ export const contactFormReducer = (state = {}, action) => {
         success: true,
         ...action.payload,
       };
+    case CONTACT_FORM_RESET:
+      return {};
     case CONTACT_FORM_FAILURE:
       return { loading: false, error: action.payload };
     default:

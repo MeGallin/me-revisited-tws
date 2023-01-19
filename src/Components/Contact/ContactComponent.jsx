@@ -7,8 +7,9 @@ import InputComponent from '../Input/InputComponent';
 import TellMeComponent from '../TellMe/TellMeComponent';
 import TextAreaComponent from '../TextArea/TextAreaComponent';
 
-import { contactFormAction } from '../../Store/Actions/ContactFormActions';
+import { contactFormAction } from '../../Store/Actions/contactFormActions';
 import SpinnerComponent from '../Spinner/SpinnerComponent';
+import ToasterComponent from '../Toaster/ToasterComponent';
 
 const ContactComponent = () => {
   const dispatch = useDispatch();
@@ -49,10 +50,8 @@ const ContactComponent = () => {
             <TellMeComponent text={['Get', ' in', ' touch']} />
           </legend>
           <div>
-            {error ? 'Error! Message could not be sent.' : null}
-            {success
-              ? 'Your message was successfully sent. I will be in contact shortly'
-              : null}
+            <ToasterComponent options={{ error, success }} />
+
             <p>
               If you have any questions or queries, please fill out the form
               below.
