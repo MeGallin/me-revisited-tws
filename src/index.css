@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 /* variable setup */
 :root {
   --main-bg-colour: rgba(32, 32, 32, 1);
@@ -7,10 +8,13 @@
   --burnt-orange: rgba(190, 79, 12, 1);
   --main-font-colour: whitesmoke;
   --border-colour: rgba(200, 200, 200, 0.5);
+  --border-colour-dark: hsla(0, 1%, 33%, 0.2);
+  --border-colour-light: hsla(0, 0%, 78%, 0.2);
   --danger: crimson;
   --warning: rgba(240, 173, 78, 1);
   --header-height: 60px;
   --footer-height: 80px;
+  --fieldSet-bg-colour: hsla(0, 0%, 45%, 0.1);
 }
 
 /* Box sizing rules */
@@ -43,6 +47,8 @@ dl,
 dd {
   margin: 0;
 }
+
+@import './Css/fieldSet.css';
 
 /* Set core body defaults */
 body {
