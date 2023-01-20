@@ -49,6 +49,15 @@ const HeaderComponent = () => {
               <TellMeComponent text={['contact']} />
             </NavLink>
           </li>
+          <li className="link">
+            <NavLink
+              onClick={() => setToggleHamburger((prev) => (prev = !prev))}
+              className={(navData) => (navData.isActive ? 'active' : '')}
+              to="/cv"
+            >
+              <TellMeComponent text={['c', ' V']} />
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>

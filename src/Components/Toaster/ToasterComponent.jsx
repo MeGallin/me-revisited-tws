@@ -4,15 +4,18 @@ import './ToasterComponent.css';
 import { FaCheck, FaExclamation, FaTimes } from 'react-icons/fa';
 import 'animate.css';
 import { CONTACT_FORM_RESET } from '../../Store/Constants/contactFormConstants';
+import { USER_REGISTER_RESET } from '../../Store/Constants/userConstants';
 
 const ToasterComponent = ({ options }) => {
   const dispatch = useDispatch();
   const handleToasterClose = () => {
     dispatch({ type: CONTACT_FORM_RESET });
+    dispatch({ type: USER_REGISTER_RESET });
   };
   useEffect(() => {
     const interval = setTimeout(() => {
       dispatch({ type: CONTACT_FORM_RESET });
+      dispatch({ type: USER_REGISTER_RESET });
     }, 6000);
     return () => clearInterval(interval);
   }, [dispatch]);
