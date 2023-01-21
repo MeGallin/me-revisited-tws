@@ -7,7 +7,10 @@ import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import InputComponent from '../Input/InputComponent';
 import ButtonComponent from '../Button/ButtonComponent';
 import SpinnerComponent from '../Spinner/SpinnerComponent';
-import { loginAction } from '../../Store/Actions/userActions';
+import {
+  loginAction,
+  googleUserLoginAction,
+} from '../../Store/Actions/userActions';
 import ToasterComponent from '../Toaster/ToasterComponent';
 
 const LoginComponent = () => {
@@ -34,7 +37,7 @@ const LoginComponent = () => {
   //Google auth stuff
   const googleSuccess = async (googleRes) => {
     //Dispatch action that save google info from googleRes.
-    console.log(googleRes);
+    dispatch(googleUserLoginAction(googleRes));
   };
   const googleFailure = (error) => {
     console.log('Error, with google login', error);
