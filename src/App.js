@@ -11,6 +11,7 @@ const ContactView = lazy(() => import('./Views/Contact/ContactView'));
 const ErrorView = lazy(() => import('./Views/Error/ErrorView'));
 const CvView = lazy(() => import('./Views/CV/CvView'));
 const FormsView = lazy(() => import('./Views/Forms/FormsView'));
+const DashBoardView = lazy(() => import('./Views/DashBoard/DashBoardView'));
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route path="/contact" element={<ContactView />} exact />
               <Route path="/cv" element={<CvView />} exact />
               <Route path="/forms" element={<FormsView />} exact />
+              <Route path="/dashboard" element={<DashBoardView />} exact />
               <Route path="*" element={<ErrorView />} exact />
             </Routes>
           </div>

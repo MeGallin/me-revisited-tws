@@ -1,12 +1,23 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
+import ButtonComponent from '../Button/ButtonComponent';
 import LogoComponent from '../Logo/LogoComponent';
 import TellMeComponent from '../TellMe/TellMeComponent';
 import './HeaderComponent.css';
+import { logoutAction } from '../../Store/Actions/userActions';
 
 const HeaderComponent = () => {
+  const dispatch = useDispatch();
   const [toggleHamburger, setToggleHamburger] = useState(false);
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  const handleLogout = () => {
+    dispatch(logoutAction());
+  };
 
   return (
     <header>
@@ -58,6 +69,26 @@ const HeaderComponent = () => {
               <TellMeComponent text={['c', ' V']} />
             </NavLink>
           </li>
+          {userInfo ? (
+            <>
+              <li className="link">
+                <NavLink
+                  onClick={() => setToggleHamburger((prev) => (prev = !prev))}
+                  className={(navData) => (navData.isActive ? 'active' : '')}
+                  to="/dashboard"
+                >
+                  <TellMeComponent text={['dashBoard']} />
+                </NavLink>
+              </li>
+              <ButtonComponent
+                type="submit"
+                text="logout"
+                variant="dark"
+                onClick={handleLogout}
+                disabled={false}
+              />
+            </>
+          ) : null}
         </ul>
       </nav>
     </header>
