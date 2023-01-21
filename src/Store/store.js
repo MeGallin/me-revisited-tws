@@ -7,6 +7,7 @@ import { contactFormReducer } from './Reducers/contactFormReducer';
 import {
   userRegistrationReducer,
   userLoginReducer,
+  googleUserLoginReducer,
 } from './Reducers/userReducers';
 
 //Initialise state to hold user info if logged in.
@@ -19,6 +20,7 @@ const reducer = combineReducers({
   contactForm: contactFormReducer,
   userRegistration: userRegistrationReducer,
   userLogin: userLoginReducer,
+  googleUserLogin: googleUserLoginReducer,
 });
 
 const initialState = {
