@@ -5,7 +5,7 @@ import RegisterComponent from '../../Components/Register/RegisterComponent';
 const FormsView = () => {
   return (
     <>
-      {/* <LoginComponent /> */}
+      <LoginComponent />
       <RegisterComponent />
     </>
   );

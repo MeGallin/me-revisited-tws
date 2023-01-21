@@ -48,6 +48,7 @@ const RegisterComponent = () => {
         <fieldset className="fieldSet">
           <legend>Registration</legend>
           <ToasterComponent options={{ error, success }} />
+
           <form onSubmit={handleRegistrationSubmit}>
             <InputComponent
               label="Name"
