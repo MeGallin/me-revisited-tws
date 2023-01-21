@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import './HeaderComponent.css';
 
 import ButtonComponent from '../Button/ButtonComponent';
 import LogoComponent from '../Logo/LogoComponent';
 import TellMeComponent from '../TellMe/TellMeComponent';
-import './HeaderComponent.css';
+
 import { logoutAction } from '../../Store/Actions/userActions';
 
 const HeaderComponent = () => {
@@ -14,6 +15,8 @@ const HeaderComponent = () => {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+  const googleUserLogin = useSelector((state) => state.googleUserLogin);
+  const { userInfo: googleUserInfo } = googleUserLogin;
 
   const handleLogout = () => {
     dispatch(logoutAction());
@@ -60,16 +63,8 @@ const HeaderComponent = () => {
               <TellMeComponent text={['contact']} />
             </NavLink>
           </li>
-          <li className="link">
-            <NavLink
-              onClick={() => setToggleHamburger((prev) => (prev = !prev))}
-              className={(navData) => (navData.isActive ? 'active' : '')}
-              to="/cv"
-            >
-              <TellMeComponent text={['c', ' V']} />
-            </NavLink>
-          </li>
-          {userInfo ? (
+
+          {userInfo || googleUserInfo ? (
             <>
               <li className="link">
                 <NavLink
@@ -88,7 +83,19 @@ const HeaderComponent = () => {
                 disabled={false}
               />
             </>
-          ) : null}
+          ) : (
+            <>
+              <li className="link">
+                <NavLink
+                  onClick={() => setToggleHamburger((prev) => (prev = !prev))}
+                  className={(navData) => (navData.isActive ? 'active' : '')}
+                  to="/cv"
+                >
+                  <TellMeComponent text={['c', ' V']} />
+                </NavLink>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
     </header>

@@ -27,12 +27,19 @@ h3 {
 }
 
 /* helper classes */
+
 .global_wrapper {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+.reg-thumbs-up-icon {
+  color: var(--success);
+}
+.reg-thumbs-down-icon {
+  color: var(--danger);
 }
 .border-temp {
   border: 2px solid green;
