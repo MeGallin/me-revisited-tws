@@ -11,6 +11,7 @@
   --border-colour-dark: hsla(0, 1%, 33%, 0.2);
   --border-colour-light: hsla(0, 0%, 78%, 0.2);
   --danger: crimson;
+  --success: #14a44d;
   --warning: rgba(240, 173, 78, 1);
   --header-height: 60px;
   --footer-height: 80px;
