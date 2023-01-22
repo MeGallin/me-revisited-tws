@@ -38,7 +38,7 @@ const InputComponent = ({
   };
 
   return (
-    <div className="input-field-wrapper">
+    <>
       <div className="input-icon-wrapper">
         {label && <label htmlFor="input-field">{label}</label>}
         {onlyPassword ? (
@@ -63,7 +63,7 @@ const InputComponent = ({
       />
 
       {error && <p className="validation-error">{error}</p>}
-    </div>
+    </>
   );
 };
 
