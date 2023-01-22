@@ -41,6 +41,7 @@ h3 {
 .reg-thumbs-down-icon {
   color: var(--danger);
 }
+
 .border-temp {
   border: 2px solid green;
 }

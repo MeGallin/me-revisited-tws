@@ -1,5 +1,5 @@
 import React from 'react';
-import CvComponent from '../../Components/Header/CV/CvComponent';
+import CvComponent from '../../Components/CV/CvComponent';
 
 const CvView = () => {
   return <CvComponent />;
