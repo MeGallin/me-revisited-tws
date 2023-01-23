@@ -1,50 +1,49 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import './ToasterComponent.css';
 import { FaCheck, FaExclamation, FaTimes } from 'react-icons/fa';
 import 'animate.css';
-import { CONTACT_FORM_RESET } from '../../Store/Constants/contactFormConstants';
-import {
-  USER_LOGIN_RESET,
-  USER_REGISTER_RESET,
-} from '../../Store/Constants/userConstants';
 
 const ToasterComponent = ({ options }) => {
+  const [error, setError] = useState(options?.error);
+  const [success, setSuccess] = useState(options?.success);
   const dispatch = useDispatch();
+
   const handleToasterClose = () => {
-    dispatch({ type: CONTACT_FORM_RESET });
-    dispatch({ type: USER_REGISTER_RESET });
-    dispatch({ type: USER_LOGIN_RESET });
+    setError(undefined);
+    setSuccess(undefined);
   };
   useEffect(() => {
     const interval = setTimeout(() => {
-      dispatch({ type: CONTACT_FORM_RESET });
-      dispatch({ type: USER_REGISTER_RESET });
-      dispatch({ type: USER_LOGIN_RESET });
+      setError(undefined);
+      setSuccess(undefined);
     }, 6000);
     return () => clearInterval(interval);
   }, [dispatch]);
+
+  console.log(error, success);
+
   return (
     <>
-      {options?.success || options.error ? (
+      {success || error ? (
         <div
           className={`toaster animate__animated animate__bounceInLeft ${
-            options?.success ? 'success' : null
-          } || ${options?.error ? 'error' : null} `}
+            success ? 'success' : null
+          } || ${error ? 'error' : null} `}
         >
           <div className="toaster_content">
-            {options?.success ? (
+            {success ? (
               <>
                 <FaCheck size={28} />
                 <h1>Success</h1>
-                <p>{options?.success}</p>
+                <p>{success}</p>
               </>
             ) : null}
-            {options?.error ? (
+            {error ? (
               <>
                 <FaExclamation size={28} />
                 <h1>Error</h1>
-                <p>{options?.error}</p>
+                <p>{error}</p>
               </>
             ) : null}
           </div>
