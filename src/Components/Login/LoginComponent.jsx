@@ -16,6 +16,9 @@ import ToasterComponent from '../Toaster/ToasterComponent';
 const LoginComponent = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [redirect, setRedirect] = useState(
+    'We are just checking your details. You will be redirected shortly.',
+  );
 
   const [formData, setFormData] = useState({
     email: '',
@@ -33,6 +36,7 @@ const LoginComponent = () => {
     });
     setTimeout(() => {
       navigate('/dashboard');
+      setRedirect('');
     }, 6000);
   };
   const userLogin = useSelector((state) => state.userLogin);
@@ -62,7 +66,11 @@ const LoginComponent = () => {
         <fieldset className="fieldSet">
           <legend>Login</legend>
           <ToasterComponent options={{ error, success }} />
-
+          {success ? (
+            <span>
+              {redirect} <SpinnerComponent />
+            </span>
+          ) : null}
           <form onSubmit={handleLoginSubmit}>
             <InputComponent
               label="Email"
