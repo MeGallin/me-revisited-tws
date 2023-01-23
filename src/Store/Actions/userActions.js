@@ -6,6 +6,9 @@ import {
   USER_EDIT_DETAILS_FAILURE,
   USER_EDIT_DETAILS_REQUEST,
   USER_EDIT_DETAILS_SUCCESS,
+  USER_FORGOT_PW_FAILURE,
+  USER_FORGOT_PW_REQUEST,
+  USER_FORGOT_PW_SUCCESS,
   USER_INFO_DETAILS_FAILURE,
   USER_INFO_DETAILS_REQUEST,
   USER_INFO_DETAILS_RESET,
@@ -17,6 +20,9 @@ import {
   USER_REGISTER_FAILURE,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
+  USER_RESET_PASSWORD_FAILURE,
+  USER_RESET_PASSWORD_REQUEST,
+  USER_RESET_PASSWORD_SUCCESS,
 } from '../Constants/userConstants';
 import axios from 'axios';
 
@@ -213,3 +219,63 @@ export const userEditDetailAction =
       });
     }
   };
+
+//User Forgot password Send email
+export const userForgotPasswordAction = (email) => async (dispatch) => {
+  try {
+    dispatch({
+      type: USER_FORGOT_PW_REQUEST,
+    });
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    const { data } = await axios.post(
+      `${process.env.REACT_APP_END_POINT}api/forgot-password`,
+      { email: email },
+      config,
+    );
+    dispatch({ type: USER_FORGOT_PW_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: USER_FORGOT_PW_FAILURE,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+//User Reset Password
+export const userResetPasswordAction = (updatedInfo) => async (dispatch) => {
+  try {
+    dispatch({
+      type: USER_RESET_PASSWORD_REQUEST,
+    });
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    const { data } = await axios.put(
+      `${process.env.REACT_APP_END_POINT}api/reset-password/${updatedInfo.resetPasswordToken}`,
+      updatedInfo,
+      config,
+    );
+    dispatch({ type: USER_RESET_PASSWORD_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: USER_RESET_PASSWORD_FAILURE,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
