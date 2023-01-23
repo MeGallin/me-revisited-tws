@@ -10,6 +10,8 @@ import {
   googleUserLoginReducer,
   userInfoDetailsReducer,
   userEditDetailsReducer,
+  userForgotPasswordReducer,
+  userResetPasswordReducer,
 } from './Reducers/userReducers';
 
 //Initialise state to hold user info if logged in.
@@ -25,6 +27,8 @@ const reducer = combineReducers({
   googleUserLogin: googleUserLoginReducer,
   userInfoDetails: userInfoDetailsReducer,
   userEditDetails: userEditDetailsReducer,
+  userForgotPassword: userForgotPasswordReducer,
+  userResetPassword: userResetPasswordReducer,
 });
 
 const initialState = {

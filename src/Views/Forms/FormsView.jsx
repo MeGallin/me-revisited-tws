@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ButtonComponent from '../../Components/Button/ButtonComponent';
+import ForgotPasswordComponent from '../../Components/ForgotPassword/ForgotPasswordComponent';
 import LoginComponent from '../../Components/Login/LoginComponent';
 import RegisterComponent from '../../Components/Register/RegisterComponent';
 
@@ -9,7 +10,7 @@ const FormsView = () => {
   return (
     <div style={{ width: '100%' }}>
       {showForgotPw ? (
-        'Form here'
+        <ForgotPasswordComponent />
       ) : showRegisterForm ? (
         <RegisterComponent />
       ) : (

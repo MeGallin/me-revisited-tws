@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { useNavigate } from 'react-router-dom';
 import { emailRegEx, passwordRegEx } from '../../Utils/regEx';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 
@@ -15,6 +15,7 @@ import ToasterComponent from '../Toaster/ToasterComponent';
 
 const LoginComponent = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: '',
@@ -30,6 +31,9 @@ const LoginComponent = () => {
       email: '',
       password: '',
     });
+    setTimeout(() => {
+      navigate('/dashboard');
+    }, 6000);
   };
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, error, success } = userLogin;

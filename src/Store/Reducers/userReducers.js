@@ -6,6 +6,9 @@ import {
   USER_EDIT_DETAILS_FAILURE,
   USER_EDIT_DETAILS_REQUEST,
   USER_EDIT_DETAILS_SUCCESS,
+  USER_FORGOT_PW_FAILURE,
+  USER_FORGOT_PW_REQUEST,
+  USER_FORGOT_PW_SUCCESS,
   USER_INFO_DETAILS_FAILURE,
   USER_INFO_DETAILS_REQUEST,
   USER_INFO_DETAILS_RESET,
@@ -18,6 +21,9 @@ import {
   USER_REGISTER_REQUEST,
   USER_REGISTER_RESET,
   USER_REGISTER_SUCCESS,
+  USER_RESET_PASSWORD_FAILURE,
+  USER_RESET_PASSWORD_REQUEST,
+  USER_RESET_PASSWORD_SUCCESS,
 } from '../Constants/userConstants';
 
 //GET: User Info Details
@@ -106,6 +112,42 @@ export const userEditDetailsReducer = (state = {}, action) => {
         ...action.payload,
       };
     case USER_EDIT_DETAILS_FAILURE:
+      return { loading: false, error: action.payload };
+
+    default:
+      return { ...state };
+  }
+};
+
+//Forgot Password send email
+export const userForgotPasswordReducer = (state = {}, action) => {
+  switch (action.type) {
+    case USER_FORGOT_PW_REQUEST:
+      return { loading: true };
+    case USER_FORGOT_PW_SUCCESS:
+      return {
+        loading: false,
+        success: true,
+      };
+    case USER_FORGOT_PW_FAILURE:
+      return { loading: false, error: action.payload };
+
+    default:
+      return { ...state };
+  }
+};
+
+//Reset Password
+export const userResetPasswordReducer = (state = {}, action) => {
+  switch (action.type) {
+    case USER_RESET_PASSWORD_REQUEST:
+      return { loading: true };
+    case USER_RESET_PASSWORD_SUCCESS:
+      return {
+        loading: false,
+        success: true,
+      };
+    case USER_RESET_PASSWORD_FAILURE:
       return { loading: false, error: action.payload };
 
     default:
