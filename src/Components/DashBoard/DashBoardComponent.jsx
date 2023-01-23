@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { userInfoDetailsAction } from '../../Store/Actions/userActions';
 import CardComponent from '../Card/CardComponent';
-import MyDetailsComponent from '../MyDeails/MyDetailsComponent';
+import MyDetailsComponent from '../MyDetails/MyDetailsComponent';
 import SpinnerComponent from '../Spinner/SpinnerComponent';
 import TellMeComponent from '../TellMe/TellMeComponent';
 import ToasterComponent from '../Toaster/ToasterComponent';

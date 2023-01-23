@@ -3,6 +3,9 @@ import {
   GOOGLE_USER_LOGIN_REQUEST,
   GOOGLE_USER_LOGIN_SUCCESS,
   GOOGLE_USER_LOGOUT,
+  USER_EDIT_DETAILS_FAILURE,
+  USER_EDIT_DETAILS_REQUEST,
+  USER_EDIT_DETAILS_SUCCESS,
   USER_INFO_DETAILS_FAILURE,
   USER_INFO_DETAILS_REQUEST,
   USER_INFO_DETAILS_RESET,
@@ -174,3 +177,39 @@ export const logoutAction = () => (dispatch) => {
   dispatch({ type: GOOGLE_USER_LOGOUT });
   dispatch({ type: USER_INFO_DETAILS_RESET });
 };
+
+//PUT: User EDIT Password
+export const userEditDetailAction =
+  (id, formaData) => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: USER_EDIT_DETAILS_REQUEST,
+      });
+
+      const {
+        userLogin: { userInfo },
+      } = getState();
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      };
+
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_END_POINT}api/user/${id.id}`,
+        formaData,
+        config,
+      );
+      dispatch({ type: USER_EDIT_DETAILS_SUCCESS, payload: data });
+      dispatch(userInfoDetailsAction());
+    } catch (error) {
+      dispatch({
+        type: USER_EDIT_DETAILS_FAILURE,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };

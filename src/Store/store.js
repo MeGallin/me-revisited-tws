@@ -9,6 +9,7 @@ import {
   userLoginReducer,
   googleUserLoginReducer,
   userInfoDetailsReducer,
+  userEditDetailsReducer,
 } from './Reducers/userReducers';
 
 //Initialise state to hold user info if logged in.
@@ -23,6 +24,7 @@ const reducer = combineReducers({
   userLogin: userLoginReducer,
   googleUserLogin: googleUserLoginReducer,
   userInfoDetails: userInfoDetailsReducer,
+  userEditDetails: userEditDetailsReducer,
 });
 
 const initialState = {

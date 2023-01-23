@@ -3,6 +3,9 @@ import {
   GOOGLE_USER_LOGIN_REQUEST,
   GOOGLE_USER_LOGIN_SUCCESS,
   GOOGLE_USER_LOGOUT,
+  USER_EDIT_DETAILS_FAILURE,
+  USER_EDIT_DETAILS_REQUEST,
+  USER_EDIT_DETAILS_SUCCESS,
   USER_INFO_DETAILS_FAILURE,
   USER_INFO_DETAILS_REQUEST,
   USER_INFO_DETAILS_RESET,
@@ -86,6 +89,25 @@ export const googleUserLoginReducer = (state = {}, action) => {
       return { loading: false, error: action.payload };
     case GOOGLE_USER_LOGOUT:
       return {};
+    default:
+      return { ...state };
+  }
+};
+
+//PUT: User EDIT Details
+export const userEditDetailsReducer = (state = {}, action) => {
+  switch (action.type) {
+    case USER_EDIT_DETAILS_REQUEST:
+      return { loading: true };
+    case USER_EDIT_DETAILS_SUCCESS:
+      return {
+        loading: false,
+        success: true,
+        ...action.payload,
+      };
+    case USER_EDIT_DETAILS_FAILURE:
+      return { loading: false, error: action.payload };
+
     default:
       return { ...state };
   }

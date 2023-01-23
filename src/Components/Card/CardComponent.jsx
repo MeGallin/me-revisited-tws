@@ -1,16 +1,18 @@
 import './CardComponent.css';
 import moment from 'moment';
 import { FaRegThumbsUp, FaRegThumbsDown } from 'react-icons/fa';
+import EditDetailsComponent from '../EditDetails/EditDetailsComponent';
 
 const CardComponent = ({ props }) => {
   return (
     <div className="card_wrapper">
       <div className="card_header">
-        <h3>Details</h3>
-        {props._id}
-        {props.name}
-        {props.email}
-        {props.password}
+        <div className="card_header_wrapper">
+          <h3>Details</h3>
+          <span className="card_header_id">{props._id}</span>
+        </div>
+
+        <EditDetailsComponent />
       </div>
       <div className="card_body">
         <h3>Stats</h3>
