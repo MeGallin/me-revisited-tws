@@ -1,9 +1,15 @@
 .card_wrapper {
   background-color: var(--main-bg-colour);
 }
+.card_header_wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 .card_header {
   padding: 0.4em;
 }
+
 .card_body {
   border: 1px solid var(--border-colour-light);
   padding: 0.4em;
@@ -24,4 +30,9 @@
   align-items: center;
   padding: 0.4em;
   font-size: 0.7rem;
+}
+.card_header_id {
+  font-size: 0.8rem;
+  margin-left: 2em;
+  opacity: 0.6;
 }

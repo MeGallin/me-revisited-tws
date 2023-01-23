@@ -21,8 +21,6 @@ const ToasterComponent = ({ options }) => {
     return () => clearInterval(interval);
   }, [dispatch]);
 
-  console.log(error, success);
-
   return (
     <>
       {success || error ? (
