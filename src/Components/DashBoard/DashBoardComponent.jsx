@@ -27,7 +27,7 @@ const DashBoardComponent = () => {
   }, [dispatch, navigate, userInfo, googleUserInfo]);
 
   const userInfoDetails = useSelector((state) => state.userInfoDetails);
-  const { loading, success, error, userDetails } = userInfoDetails;
+  const { loading, error, userDetails } = userInfoDetails;
   useEffect(() => {
     if (!userDetails?.isConfirmed)
       return setIsEmailConfirmed(
@@ -42,7 +42,7 @@ const DashBoardComponent = () => {
       ) : (
         <fieldset className="fieldSet">
           <legend>{userDetails?.name} Dashboard</legend>
-          <ToasterComponent options={{ error, success }} />
+          <ToasterComponent options={{ error }} />
           {!userDetails?.isConfirmed ? (
             <>
               <h3>{isEmailConfirmed}</h3>

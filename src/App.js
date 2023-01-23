@@ -16,7 +16,7 @@ const DashBoardView = lazy(() => import('./Views/DashBoard/DashBoardView'));
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="container">
         <HeaderComponent />
         <Suspense fallback={<SpinnerComponent />}>
           <div className="content_height_adjuster">

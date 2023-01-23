@@ -17,6 +17,19 @@ h3 {
   display: inline-block;
 }
 
+:root {
+  --grid-width: 1280px;
+}
+
+.container {
+  max-width: var(--grid-width);
+  margin: 0 auto;
+}
+.container .--fluid {
+  margin: 0;
+  max-width: 100%;
+}
+
 .content_height_adjuster {
   min-height: calc(100vh - var(--header-height) - var(--footer-height));
   display: flex;
