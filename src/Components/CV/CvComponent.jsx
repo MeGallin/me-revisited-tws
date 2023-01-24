@@ -17,7 +17,7 @@ const CvComponent = () => {
         />
       </NavLink>
       <div>
-        <h3>Just a bit</h3>
+        <h3>Just a peek</h3>
         <p>Thank you for showing interest in my CV.</p>
         <p>
           If this is your first time here, please click the login/register

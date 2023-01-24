@@ -1,13 +1,13 @@
 import './LogoComponent.css';
 
 const LogoComponent = () => {
-  const title = `webDeveloper`;
+  const title = `webdeveloper`;
 
   return (
     <>
       <div className="logo_wrapper">
         <h2>gary allin</h2>
-        <div className="titles" data={title}>
+        <div className="title" data={title}>
           {title}
         </div>
       </div>
