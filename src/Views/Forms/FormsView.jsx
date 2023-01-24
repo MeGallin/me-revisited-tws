@@ -1,12 +1,13 @@
-import { useState } from 'react';
 import ButtonComponent from '../../Components/Button/ButtonComponent';
 import ForgotPasswordComponent from '../../Components/ForgotPassword/ForgotPasswordComponent';
 import LoginComponent from '../../Components/Login/LoginComponent';
 import RegisterComponent from '../../Components/Register/RegisterComponent';
+import useToggle from '../../Utils/useToggle';
 
 const FormsView = () => {
-  const [showRegisterForm, setShowRegisterForm] = useState(false);
-  const [showForgotPw, setShowForgotPw] = useState(false);
+  //Created a custom useToggle hook
+  const [showRegisterForm, setShowRegisterForm] = useToggle(false);
+  const [showForgotPw, setShowForgotPw] = useToggle(false);
   return (
     <div style={{ width: '100%' }}>
       {showForgotPw ? (
@@ -23,7 +24,7 @@ const FormsView = () => {
             text={showRegisterForm ? 'Login?' : 'Register?'}
             variant="dark"
             disabled={false}
-            onClick={() => setShowRegisterForm((prev) => (prev = !prev))}
+            onClick={setShowRegisterForm}
           />
         )}
         <ButtonComponent
@@ -31,7 +32,7 @@ const FormsView = () => {
           text={showForgotPw ? 'Back to login' : ' Forgot Password'}
           variant="dark"
           disabled={false}
-          onClick={() => setShowForgotPw((prev) => (prev = !prev))}
+          onClick={setShowForgotPw}
         />
       </div>
     </div>
