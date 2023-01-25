@@ -1,0 +1,114 @@
+.timeline {
+  position: relative;
+  padding: 1rem;
+  margin: 0 auto;
+  width: 100%;
+  overflow-y: auto;
+}
+.timeline:before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  border: 2px solid var(--warning);
+  right: 20px;
+  top: 0;
+}
+.timeline:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.timeline__item {
+  padding: 0.4em;
+  border: 1px solid var(--warning);
+  border-image: linear-gradient(
+    to right,
+    var(--border-colour-dark) 0%,
+    var(--warning) 100%
+  );
+  border-image-slice: 1;
+  position: relative;
+  margin: 1rem 3rem 1rem 1rem;
+  clear: both;
+  /* background-color: var(--main-bg-colour); */
+}
+.timeline__item:after,
+.timeline__item:before {
+  content: '';
+  position: absolute;
+}
+.timeline__item:before {
+  right: -30px;
+  top: calc(50% - 30px);
+  border-style: solid;
+  border-color: var(--warning) var(--warning) transparent transparent;
+  border-width: 30px;
+  transform: rotate(45deg);
+}
+
+.timeline__item__text {
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  margin-right: 1em;
+  opacity: 0.5;
+}
+
+.timeline__item--year {
+  text-align: center;
+  background-color: black;
+  line-height: 1;
+}
+.timeline__item--year:before {
+  display: none;
+}
+
+/* Media queries setting */
+@media screen and (min-width: 700px) {
+  .timeline:before {
+    left: calc(50% - 1px);
+    right: auto;
+  }
+  .timeline__item {
+    width: 25%;
+    margin: 1rem;
+    left: 248px;
+  }
+  .timeline__item:nth-of-type(2n) {
+    float: right;
+    margin: 1rem;
+    border-image: linear-gradient(
+      to right,
+      var(--warning) 0%,
+      var(--border-colour-dark) 100%
+    );
+    border-image-slice: 1;
+    left: -244px;
+  }
+  .timeline__item:nth-of-type(2n):before {
+    right: auto;
+    left: -30px;
+    border-color: transparent transparent var(--warning) var(--warning);
+  }
+  .timeline__item--year {
+    text-align: center;
+    margin: 0 auto;
+    left: 0;
+  }
+  .timeline__item--year:nth-of-type(2n) {
+    float: none;
+    margin: 0 auto;
+    border-image: none;
+    left: 0;
+  }
+  .timeline__item--year:nth-of-type(2n):before {
+    display: none;
+    left: 0;
+  }
+}
+
+.timeline__blurb {
+  line-height: 1.5;
+  font-size: 1rem;
+  margin: 0.5rem 0 0;
+}
