@@ -1,21 +1,17 @@
 import { NavLink } from 'react-router-dom';
 import ButtonComponent from '../Button/ButtonComponent';
 import TellMeComponent from '../TellMe/TellMeComponent';
+import TimeLineComponent from '../TimeLine/TimeLineComponent';
+import { cvData } from '../../assets/cvData/cv_data';
 
 const CvComponent = () => {
+  console.log(cvData);
   return (
     <fieldset className="fieldSet">
       <legend>
         <TellMeComponent text={['My', ' CV']} />
       </legend>
-      <NavLink to="/forms">
-        <ButtonComponent
-          type="button"
-          text="login or register"
-          variant="info"
-          disabled={false}
-        />
-      </NavLink>
+
       <div>
         <h3>Just a peek</h3>
         <p>Thank you for showing interest in my CV.</p>
@@ -27,6 +23,20 @@ const CvComponent = () => {
           Once you have registered, you will be directed to a secure page where
           you will be presented with a link to download a PDF copy of my CV.
         </p>
+        <p>
+          <NavLink to="/forms">
+            <ButtonComponent
+              type="button"
+              text="login or register"
+              variant="info"
+              disabled={false}
+            />
+          </NavLink>
+        </p>
+
+        <h3>Timeline</h3>
+        <p>Here is a timeline for the past few years.</p>
+        <TimeLineComponent props={[...cvData]} />
 
         <h3>The legal Stuff</h3>
         <p>
