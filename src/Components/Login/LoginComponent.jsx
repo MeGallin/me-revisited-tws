@@ -43,9 +43,13 @@ const LoginComponent = () => {
   const { loading, error, success } = userLogin;
 
   //Google auth stuff
-  const googleSuccess = async (googleRes) => {
+  const googleLoginSuccess = async (googleRes) => {
     //Dispatch action that save google info from googleRes.
     dispatch(googleUserLoginAction(googleRes));
+    setTimeout(() => {
+      navigate('/dashboard');
+      setRedirect('');
+    }, 6000);
   };
   const googleFailure = (error) => {
     console.log('Error, with google login', error);
@@ -56,17 +60,26 @@ const LoginComponent = () => {
       [e.target.name]: e.target.value,
     }));
   };
+  const googleUserLogin = useSelector((state) => state.googleUserLogin);
+  const {
+    loading: googleLoading,
+    error: googleError,
+    success: googleSuccess,
+  } = googleUserLogin;
+
   //Google auth stuff
 
   return (
     <>
-      {loading ? (
+      {loading || googleLoading ? (
         <SpinnerComponent />
       ) : (
         <fieldset className="fieldSet">
           <legend>Login</legend>
-          <ToasterComponent options={{ error, success }} />
-          {success ? (
+          <ToasterComponent
+            options={{ error, success, googleError, googleSuccess }}
+          />
+          {success || googleSuccess ? (
             <span>
               {redirect} <SpinnerComponent />
             </span>
@@ -112,7 +125,7 @@ const LoginComponent = () => {
                   clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                 >
                   <GoogleLogin
-                    onSuccess={googleSuccess}
+                    onSuccess={googleLoginSuccess}
                     onError={googleFailure}
                   />
                 </GoogleOAuthProvider>

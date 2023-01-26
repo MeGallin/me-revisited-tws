@@ -1,0 +1,27 @@
+mark {
+  padding: 0.2em;
+  font-weight: bold;
+  color: var(--main-font-colour);
+  -webkit-animation: 1.5s highlight 1.5s 1 normal forwards;
+  animation: 1.5s highlight 1.5s 1 normal forwards;
+  background-color: none;
+  background: linear-gradient(
+    90deg,
+    var(--light-orange) 50%,
+    var(--main-bg-colour) 50%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+}
+
+@-webkit-keyframes highlight {
+  to {
+    background-position: 0 0;
+  }
+}
+
+@keyframes highlight {
+  to {
+    background-position: 0 0;
+  }
+}

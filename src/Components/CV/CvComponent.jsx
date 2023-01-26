@@ -13,17 +13,8 @@ const CvComponent = () => {
       </legend>
 
       <div>
-        <h3>Just a peek</h3>
-        <p>Thank you for showing interest in my CV.</p>
-        <p>
-          If this is your first time here, please click the login/register
-          button below and follow the instructions.
-        </p>
-        <p>
-          Once you have registered, you will be directed to a secure page where
-          you will be presented with a link to download a PDF copy of my CV.
-        </p>
-        <p>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <h3>Just a peek</h3>
           <NavLink to="/forms">
             <ButtonComponent
               type="button"
@@ -32,6 +23,16 @@ const CvComponent = () => {
               disabled={false}
             />
           </NavLink>
+        </div>
+
+        <p>Thank you for showing interest in my CV.</p>
+        <p>
+          If this is your first time here, please click the login/register
+          button below and follow the instructions.
+        </p>
+        <p>
+          Once you have registered, you will be directed to a secure page where
+          you will be presented with a link to download a PDF copy of my CV.
         </p>
 
         <h3>Timeline</h3>
