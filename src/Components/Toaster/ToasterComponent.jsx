@@ -5,8 +5,10 @@ import { FaCheck, FaExclamation, FaTimes } from 'react-icons/fa';
 import 'animate.css';
 
 const ToasterComponent = ({ options }) => {
-  const [error, setError] = useState(options?.error);
-  const [success, setSuccess] = useState(options?.success);
+  const [error, setError] = useState(options?.error || options.googleError);
+  const [success, setSuccess] = useState(
+    options?.success || options.googleSuccess,
+  );
   const dispatch = useDispatch();
 
   const handleToasterClose = () => {
