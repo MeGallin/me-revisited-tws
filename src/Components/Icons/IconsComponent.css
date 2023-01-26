@@ -1,0 +1,11 @@
+:root {
+  --icon-size: 48px;
+}
+.icons_wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+.icon {
+  height: var(--icon-size);
+  width: var(--icon-size);
+}
