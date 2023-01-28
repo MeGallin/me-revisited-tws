@@ -2,10 +2,9 @@ import { NavLink } from 'react-router-dom';
 import ButtonComponent from '../Button/ButtonComponent';
 import TellMeComponent from '../TellMe/TellMeComponent';
 import TimeLineComponent from '../TimeLine/TimeLineComponent';
-import { cvData } from '../../assets/cvData/cv_data';
+import { cvData } from '../../assets/data/cv_data';
 
 const CvComponent = () => {
-  console.log(cvData);
   return (
     <fieldset className="fieldSet">
       <legend>
@@ -14,7 +13,7 @@ const CvComponent = () => {
 
       <div>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <h3>Just a peek</h3>
+          <h1>Just a peek</h1>
           <NavLink to="/forms">
             <ButtonComponent
               type="button"
@@ -35,14 +34,14 @@ const CvComponent = () => {
           you will be presented with a link to download a PDF copy of my CV.
         </p>
 
-        <h3>Timeline</h3>
-        <p>Here is a timeline for the past few years.</p>
+        <h1>Timeline</h1>
+        <p>Here is a timeline covering the past few years.</p>
         <TimeLineComponent props={[...cvData]} />
 
         <h3>The legal Stuff</h3>
         <p>
-          If you are not satisfied with this approach, please message me via my
-          contact form and I will gladly remove your details.
+          If you want your details removed, please message me via my contact
+          form and I will gladly remove them.
         </p>
       </div>
     </fieldset>

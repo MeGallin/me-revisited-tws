@@ -8,15 +8,9 @@ const AboutComponent = () => {
       <legend>
         <TellMeComponent text={[...text]} />
       </legend>
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'space-between',
-        }}
-      >
+      <div>
         <ul>
-          <h3>Skill Summary</h3>
+          <h1>Skills Summary</h1>
           <li>Proficient in HTML(5) and CSS(3), javascript and jQuery.</li>
           <li>
             Commercial experience in <mark>AngularJS</mark> and{' '}
@@ -39,7 +33,7 @@ const AboutComponent = () => {
         </ul>
 
         <ul>
-          <h3>Technologies</h3>
+          <h1>Technologies</h1>
           <li>MERN stack</li>
           <li>ReactJS(v18), react router(v6) and REDUX state management.</li>
           <li>
@@ -56,7 +50,7 @@ const AboutComponent = () => {
         </ul>
 
         <ul>
-          <h3>Project Management</h3>
+          <h1>Project Management</h1>
           <li>JIRA and Confluence. </li>
           <li>Crucible and Redmine.</li>
           <li>Slack</li>
@@ -65,12 +59,12 @@ const AboutComponent = () => {
         </ul>
 
         <ul>
-          <h3>Web design and UX</h3>
+          <h1>Web design and UX</h1>
           <li>Adobe PhotoShop and Illustrator.</li>
         </ul>
 
         <ul>
-          <h3>Hosting</h3>
+          <h1>Hosting</h1>
           <li>Cpanel</li>
           <li>Xampp</li>
           <li>Apache</li>
@@ -78,7 +72,7 @@ const AboutComponent = () => {
         </ul>
 
         <ul>
-          <h3>Integrations</h3>
+          <h1>Integrations</h1>
           <li>ASW, S3.</li>
           <li>Firebase</li>
           <li>Auth0</li>

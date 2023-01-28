@@ -3,15 +3,18 @@
 }
 footer {
   background-color: black;
-
   height: var(--footer-height);
   font-size: var(--footer-font-size);
+  text-align: center;
 }
-.global_wrapper {
+.footer_wrapper {
+  display: flex;
   flex-direction: column;
 }
 .footer_links {
   display: flex;
+  justify-content: center;
+  height: 40px;
 }
 .footer_link {
   font-size: var(--footer-font-size);

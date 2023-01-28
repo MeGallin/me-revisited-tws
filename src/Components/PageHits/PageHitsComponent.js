@@ -19,7 +19,7 @@ const PageHitsComponent = () => {
       ) : error ? (
         'There was an error loading the page hit counter'
       ) : (
-        `${100 + hits?.length} unique hits.`
+        <> {100 + hits?.length} page views.</>
       )}
     </>
   );

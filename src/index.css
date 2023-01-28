@@ -14,7 +14,7 @@
   --success: #14a44d;
   --warning: rgba(240, 173, 78, 1);
   --header-height: 60px;
-  --footer-height: 80px;
+  --footer-height: 74px;
   --fieldSet-bg-colour: hsla(0, 0%, 45%, 0.1);
 }
 
@@ -66,11 +66,6 @@ body {
   line-height: 1.5;
   font-size: 16px;
   margin: 0;
-}
-body p {
-  font-size: 16px;
-  line-height: 2rem;
-  margin-bottom: 1em;
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */
