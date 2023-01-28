@@ -4,7 +4,7 @@ import './FooterComponent.css';
 const FooterComponent = () => {
   return (
     <footer>
-      <div className="global_wrapper">
+      <div className="footer_wrapper">
         <div className="footer_links">
           <p>
             <a
@@ -50,8 +50,11 @@ const FooterComponent = () => {
             </a>
           </p>
         </div>
+        <div>
+          <PageHitsComponent />
+        </div>
+
         <DateTimeComponent />
-        <PageHitsComponent />
       </div>
     </footer>
   );

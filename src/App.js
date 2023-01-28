@@ -10,6 +10,7 @@ const AboutView = lazy(() => import('./Views/About/AboutView'));
 const ContactView = lazy(() => import('./Views/Contact/ContactView'));
 const ErrorView = lazy(() => import('./Views/Error/ErrorView'));
 const CvView = lazy(() => import('./Views/CV/CvView'));
+const MyWorkView = lazy(() => import('./Views/MyWork/MyWorkView'));
 const FormsView = lazy(() => import('./Views/Forms/FormsView'));
 const DashBoardView = lazy(() => import('./Views/DashBoard/DashBoardView'));
 const PasswordResetView = lazy(() =>
@@ -26,6 +27,7 @@ function App() {
             <Routes>
               <Route path="/" element={<HomeView />} exact />
               <Route path="/about" element={<AboutView />} exact />
+              <Route path="/my-work" element={<MyWorkView />} exact />
               <Route path="/contact" element={<ContactView />} exact />
               <Route path="/cv" element={<CvView />} exact />
               <Route path="/forms" element={<FormsView />} exact />

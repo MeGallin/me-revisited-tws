@@ -17,7 +17,7 @@ const DateTimeComponent = () => {
   return (
     <>
       {dateTime ? (
-        <div>{dateTime}</div>
+        <>{dateTime}</>
       ) : (
         <div>
           <SpinnerComponent />

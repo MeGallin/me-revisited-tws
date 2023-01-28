@@ -42,7 +42,7 @@ const HeaderComponent = () => {
               className={(navData) => (navData.isActive ? 'active' : '')}
               to="/"
             >
-              <TellMeComponent text={['Home']} />
+              <TellMeComponent text={['H', 'ome']} />
             </NavLink>
           </li>
           <li className="link">
@@ -51,7 +51,16 @@ const HeaderComponent = () => {
               className={(navData) => (navData.isActive ? 'active' : '')}
               to="/about"
             >
-              <TellMeComponent text={['about']} />
+              <TellMeComponent text={['ab', 'out']} />
+            </NavLink>
+          </li>
+          <li className="link">
+            <NavLink
+              onClick={() => setToggleHamburger((prev) => (prev = !prev))}
+              className={(navData) => (navData.isActive ? 'active' : '')}
+              to="/my-work"
+            >
+              <TellMeComponent text={['m', 'y', ' w', 'o', 'rk']} />
             </NavLink>
           </li>
           <li className="link">
@@ -60,7 +69,7 @@ const HeaderComponent = () => {
               className={(navData) => (navData.isActive ? 'active' : '')}
               to="/contact"
             >
-              <TellMeComponent text={['contact']} />
+              <TellMeComponent text={['con', 't', 'act']} />
             </NavLink>
           </li>
 
@@ -91,7 +100,7 @@ const HeaderComponent = () => {
                   className={(navData) => (navData.isActive ? 'active' : '')}
                   to="/cv"
                 >
-                  <TellMeComponent text={['c', ' V']} />
+                  <TellMeComponent text={['c', 'V']} />
                 </NavLink>
               </li>
             </>
