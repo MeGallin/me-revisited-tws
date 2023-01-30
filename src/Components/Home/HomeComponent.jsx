@@ -37,7 +37,7 @@ const HomeComponent = () => {
           United Kingdom. Utilizing my decade of experience, I design fast,
           efficient, and visually pleasing websites and applications using
           current web technologies and methods, constructed to enhance and
-          streamline business operations.
+          streamline business operations...
         </p>
         <p>
           I am a self-taught web developer with a passion for learning web
