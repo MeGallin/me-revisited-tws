@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import BetaReleaseComponent from './Components/BetaRelease/BetaReleaseComponent';
 import FooterComponent from './Components/Footer/FooterComponent';
 import HeaderComponent from './Components/Header/HeaderComponent';
 import SpinnerComponent from './Components/Spinner/SpinnerComponent';
@@ -21,6 +22,7 @@ function App() {
   return (
     <Router>
       <div className="container">
+        <BetaReleaseComponent />
         <HeaderComponent />
         <Suspense fallback={<SpinnerComponent />}>
           <div className="content_height_adjuster">

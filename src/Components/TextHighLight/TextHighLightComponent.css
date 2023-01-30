@@ -1,0 +1,39 @@
+:root {
+  --letter-spacing: 0;
+  --title-padding: 0;
+}
+
+.text_high_light_title {
+  position: relative;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: var(--letter-spacing);
+  font-weight: 200;
+  padding: var(--title-padding);
+}
+.text_high_light_title::before {
+  content: attr(data);
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 0;
+  letter-spacing: var(--letter-spacing);
+  font-weight: bold;
+  text-decoration: solid;
+  color: var(--info);
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
+  padding: var(--title-padding);
+  overflow: hidden;
+  animation: animate 4s linear infinite;
+}
+@keyframes animate {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+  }
+  0% {
+    width: 0;
+  }
+}

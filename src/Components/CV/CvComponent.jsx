@@ -13,7 +13,7 @@ const CvComponent = () => {
 
       <div>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <h1>Just a peek</h1>
+          <h1>Take a peek</h1>
           <NavLink to="/forms">
             <ButtonComponent
               type="button"
