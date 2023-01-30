@@ -1,0 +1,26 @@
+.my_work_card_wrapper {
+  border: 1px solid var(--border-colour-dark);
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1em;
+  background-color: var(--fieldSet-bg-colour);
+}
+.my_work_card_wrapper a {
+  color: var(--info);
+}
+.my_work_card_wrapper > * {
+  flex-grow: 1;
+  padding: 0.4em;
+}
+.my_work_card_wrapper > *:first-child {
+  flex-basis: 50%;
+  background-color: var(--main-font-colour);
+  color: var(--main-bg-colour);
+  font-weight: bold;
+}
+
+.my_work_card_title {
+  font-size: 0.8rem;
+  line-height: 1rem;
+  padding-right: 0.6em;
+}
