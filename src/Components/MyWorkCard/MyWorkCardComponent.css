@@ -6,7 +6,12 @@
   background-color: var(--fieldSet-bg-colour);
 }
 .my_work_card_wrapper a {
+  opacity: 0.8;
   color: var(--info);
+}
+.my_work_card_wrapper a:hover {
+  opacity: 1;
+  transition: all 0.8s ease-in-out;
 }
 .my_work_card_wrapper > * {
   flex-grow: 1;

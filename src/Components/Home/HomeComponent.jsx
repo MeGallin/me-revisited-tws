@@ -1,6 +1,7 @@
 import IconsComponent from '../Icons/IconsComponent';
 import TellMeComponent from '../TellMe/TellMeComponent';
 import TextHighLightComponent from '../TextHighLight/TextHighLightComponent';
+import BetaReleaseComponent from '../BetaRelease/BetaReleaseComponent';
 
 const HomeComponent = () => {
   const thisIsMe = ['Wh', 'at', ' I', ' Do!'];
@@ -27,6 +28,7 @@ const HomeComponent = () => {
   ];
   return (
     <fieldset className="fieldSet">
+      <BetaReleaseComponent />
       <legend>
         <TellMeComponent text={[...thisIsMe]} />
       </legend>
@@ -39,7 +41,7 @@ const HomeComponent = () => {
           located in Guildford, Surrey in the United Kingdom. Utilizing my
           decade of experience, I design fast, efficient, and visually pleasing
           websites and applications using current web technologies and methods,
-          constructed to enhance and streamline business operations...
+          constructed to enhance and streamline business operations.
         </p>
         <p>
           I am a self-taught web developer with a passion for learning web
