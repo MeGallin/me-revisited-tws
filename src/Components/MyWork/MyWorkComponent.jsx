@@ -1,5 +1,7 @@
+import MyWorkCardComponent from '../MyWorkCard/MyWorkCardComponent';
 import TellMeComponent from '../TellMe/TellMeComponent';
 import './MyWorkComponent.css';
+import { myWorkData } from '../../assets/data/myWork_data';
 
 const MyWorkComponent = () => {
   return (
@@ -9,21 +11,7 @@ const MyWorkComponent = () => {
       </legend>
 
       <div>
-        <h3>Your Corporate Memory</h3>
-        <p>TECH STACK</p>
-        <p>GIT HUB</p>
-        <p>URL</p>
-        <p>Description</p>
-        <p>Features</p>
-      </div>
-
-      <div>
-        <h3>Club Manager</h3>
-        <p>TECH STACK</p>
-        <p>GIT HUB</p>
-        <p>URL</p>
-        <p>Description</p>
-        <p>Features</p>
+        <MyWorkCardComponent options={myWorkData} />
       </div>
     </fieldset>
   );
