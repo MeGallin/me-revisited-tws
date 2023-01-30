@@ -35,7 +35,7 @@ const AboutComponent = () => {
 
         <h1>Technologies</h1>
         <p>
-          <TextHighLightComponent text={'MERN'} /> stack
+          <TextHighLightComponent text={'MERN'} /> stack.
         </p>
         <p>
           ReactJS(v18), react router(v6) and <mark>REDUX</mark> state

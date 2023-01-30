@@ -44,8 +44,9 @@ const HomeComponent = () => {
           constructed to enhance and streamline business operations.
         </p>
         <p>
-          I am a self-taught web developer with a passion for learning web
-          development and a strong belief in the advancement of the web.
+          I am a self-taught web <mark>developer</mark> with a passion for
+          learning web development and a strong belief in the advancement of the
+          web.
         </p>
         <p>
           I am concise, diligent and conscientious and find logical and clear
@@ -66,18 +67,20 @@ const HomeComponent = () => {
         </p>
         <p>
           I am constantly seeking out new opportunities to learn and grow as a
-          web developer. I have a keen interest in emerging technologies and am
-          always looking for ways to apply my skills to real-world problems.
-          Whether it's developing complex web applications or creating simple,
-          user-friendly websites, I am dedicated to producing high-quality work
-          that meets the needs of the client.
+          web <TextHighLightComponent text={'developer'} />. I have a keen
+          interest in emerging technologies and am always looking for ways to
+          apply my skills to real-world problems. Whether it's developing
+          complex web applications or creating simple, user-friendly websites, I
+          am dedicated to producing high-quality work that meets the needs of
+          the client.
         </p>
         <p>
-          In summary, I am a highly motivated, self-taught web developer with a
-          passion for learning, problem-solving, and collaboration. With my
-          strong technical skills, dedication to quality, and ability to work
-          well under pressure, I am confident in my ability to make a valuable
-          contribution to any web development project.
+          In summary, I am a highly motivated, self-taught web{' '}
+          <mark>developer</mark> with a passion for learning, problem-solving,
+          and collaboration. With my strong technical skills, dedication to
+          quality, and ability to work well under pressure, I am confident in my
+          ability to make a valuable contribution to any web development
+          project.
         </p>
       </div>
       <IconsComponent options={[...imageRoutesBottom]} />
