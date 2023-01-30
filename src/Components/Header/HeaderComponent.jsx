@@ -8,7 +8,6 @@ import LogoComponent from '../Logo/LogoComponent';
 import TellMeComponent from '../TellMe/TellMeComponent';
 
 import { logoutAction } from '../../Store/Actions/userActions';
-import BetaReleaseComponent from '../BetaRelease/BetaReleaseComponent';
 
 const HeaderComponent = () => {
   const dispatch = useDispatch();
@@ -25,7 +24,6 @@ const HeaderComponent = () => {
 
   return (
     <>
-      <BetaReleaseComponent />
       <header>
         <nav>
           <LogoComponent />

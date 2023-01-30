@@ -2,7 +2,7 @@
   position: absolute;
   left: -7px;
   top: 20px;
-  background-color: var(--info);
+  background-color: var(--warning);
   -webkit-transform: rotate(-45deg) scale(1) skew(0deg) translate(10px);
   -moz-transform: rotate(-45deg) scale(1) skew(0deg) translate(10px);
   -o-transform: rotate(-45deg) scale(1) skew(0deg) translate(10px);
@@ -21,7 +21,7 @@
   right: -20px;
   top: 0px;
   border-right: 20px solid transparent;
-  border-bottom: 20px solid var(--info);
+  border-bottom: 20px solid var(--warning);
 }
 .badge:before {
   content: ' ';
@@ -29,5 +29,5 @@
   left: -20px;
   top: 0;
   border-left: 20px solid transparent;
-  border-bottom: 20px solid var(--info);
+  border-bottom: 20px solid var(--warning);
 }

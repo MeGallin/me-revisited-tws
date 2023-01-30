@@ -1,5 +1,5 @@
 :root {
-  --letter-spacing: 2px;
+  --letter-spacing: 3px;
   --title-padding: 0;
 }
 
@@ -16,34 +16,9 @@
 .title {
   position: relative;
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6);
   letter-spacing: var(--letter-spacing);
   font-weight: 200;
   padding: var(--title-padding);
-}
-.title::before {
-  content: attr(data);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  letter-spacing: var(--letter-spacing);
-  font-weight: bold;
-  text-decoration: solid;
-  color: var(--light-orange);
-  border-right: 2px solid rgba(255, 255, 255, 0.2);
-  padding: var(--title-padding);
-  overflow: hidden;
-  animation: animate 12s linear infinite;
-}
-@keyframes animate {
-  0% {
-    width: 0;
-  }
-  50% {
-    width: 100%;
-  }
-  0% {
-    width: 0;
-  }
+  text-transform: uppercase;
 }

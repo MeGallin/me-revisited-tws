@@ -1,5 +1,6 @@
 import IconsComponent from '../Icons/IconsComponent';
 import TellMeComponent from '../TellMe/TellMeComponent';
+import TextHighLightComponent from '../TextHighLight/TextHighLightComponent';
 
 const HomeComponent = () => {
   const thisIsMe = ['Wh', 'at', ' I', ' Do!'];
@@ -32,12 +33,13 @@ const HomeComponent = () => {
       <IconsComponent options={[...imageRoutesTop]} />
       <div>
         <h1>Web and browser development</h1>
+
         <p>
-          I am a web developer currently located in Guildford, Surrey in the
-          United Kingdom. Utilizing my decade of experience, I design fast,
-          efficient, and visually pleasing websites and applications using
-          current web technologies and methods, constructed to enhance and
-          streamline business operations...
+          I am a web <TextHighLightComponent text={'developer'} /> currently
+          located in Guildford, Surrey in the United Kingdom. Utilizing my
+          decade of experience, I design fast, efficient, and visually pleasing
+          websites and applications using current web technologies and methods,
+          constructed to enhance and streamline business operations...
         </p>
         <p>
           I am a self-taught web developer with a passion for learning web
