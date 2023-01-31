@@ -1,0 +1,31 @@
+.admin_dashboard_wrapper {
+  border: 1px solid var(--border-colour-dark);
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1em;
+  background-color: var(--fieldSet-bg-colour);
+}
+
+.admin_dashboard_wrapper__img {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+}
+
+.admin_dashboard_wrapper > * {
+  border: 1px solid var(--border-colour-light);
+  flex-grow: 1;
+  padding: 0.4em;
+}
+
+.admin_dashboard__group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.admin_dashboard_wrapper__inner_wrapper {
+  display: flex;
+  font-size: 0.7rem;
+  justify-content: space-between;
+  align-items: flex-end;
+}

@@ -11,7 +11,6 @@ const CardComponent = ({ props }) => {
           <h3>Details</h3>
           <span className="card_header_id">{props._id}</span>
         </div>
-
         <EditDetailsComponent />
       </div>
       <div className="card_body">
