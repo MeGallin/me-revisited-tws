@@ -6,6 +6,9 @@ import FooterComponent from './Components/Footer/FooterComponent';
 import HeaderComponent from './Components/Header/HeaderComponent';
 import SpinnerComponent from './Components/Spinner/SpinnerComponent';
 
+const AdminDashboardView = lazy(() =>
+  import('./Views/AdminDashboard/AdminDashboardView'),
+);
 const HomeView = lazy(() => import('./Views/Home/HomeView'));
 const AboutView = lazy(() => import('./Views/About/AboutView'));
 const ContactView = lazy(() => import('./Views/Contact/ContactView'));
@@ -26,6 +29,11 @@ function App() {
         <Suspense fallback={<SpinnerComponent />}>
           <div className="content_height_adjuster">
             <Routes>
+              <Route
+                path="/admin-dashboard"
+                element={<AdminDashboardView />}
+                exact
+              />
               <Route path="/" element={<HomeView />} exact />
               <Route path="/about" element={<AboutView />} exact />
               <Route path="/my-work" element={<MyWorkView />} exact />

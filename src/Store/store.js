@@ -14,12 +14,15 @@ import {
   userResetPasswordReducer,
 } from './Reducers/userReducers';
 
+import { adminUserDetailsReducer } from './Reducers/AdminReducer';
+
 //Initialise state to hold user info if logged in.
 const userInfoFromStorage = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))
   : null;
 
 const reducer = combineReducers({
+  adminUserDetails: adminUserDetailsReducer,
   pageHits: pageHitsReducer,
   contactForm: contactFormReducer,
   userRegistration: userRegistrationReducer,

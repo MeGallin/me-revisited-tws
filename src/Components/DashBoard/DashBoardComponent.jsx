@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { userInfoDetailsAction } from '../../Store/Actions/userActions';
+
 import CardComponent from '../Card/CardComponent';
 import MyDetailsComponent from '../MyDetails/MyDetailsComponent';
 import SpinnerComponent from '../Spinner/SpinnerComponent';
 import TellMeComponent from '../TellMe/TellMeComponent';
 import ToasterComponent from '../Toaster/ToasterComponent';
+import ButtonComponent from '../Button/ButtonComponent';
 
 const DashBoardComponent = () => {
   const navigate = useNavigate();
@@ -22,7 +24,6 @@ const DashBoardComponent = () => {
     let ignore = false;
     if (!userInfo && !googleUserInfo) return navigate('/forms');
     dispatch(userInfoDetailsAction());
-
     if (!ignore) return () => (ignore = true);
   }, [dispatch, navigate, userInfo, googleUserInfo]);
 
@@ -34,6 +35,11 @@ const DashBoardComponent = () => {
         `Warning: If you are seeing this message then your email address has not been verified! `,
       );
   }, [userDetails?.isConfirmed]);
+
+  const handleLink = () => {
+    if (!userDetails.isAdmin) return false;
+    navigate('/admin-dashboard');
+  };
 
   return (
     <>
@@ -60,8 +66,16 @@ const DashBoardComponent = () => {
           ) : (
             <>
               <CardComponent props={{ ...userDetails }} />
-
               <MyDetailsComponent />
+              {userDetails.isAdmin ? (
+                <ButtonComponent
+                  type="button"
+                  text="Admin Dashboard"
+                  disabled={false}
+                  variant="info"
+                  onClick={handleLink}
+                />
+              ) : null}
             </>
           )}
         </fieldset>
