@@ -37,12 +37,6 @@ const CvComponent = () => {
         <h1>Timeline</h1>
         <p>Here is a timeline covering the past few years.</p>
         <TimeLineComponent props={[...cvData]} />
-
-        <h3>The legal Stuff</h3>
-        <p>
-          If you want your details removed, please message me via my contact
-          form and I will gladly remove them.
-        </p>
       </div>
     </fieldset>
   );
