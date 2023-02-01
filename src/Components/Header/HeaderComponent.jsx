@@ -61,7 +61,7 @@ const HeaderComponent = () => {
                 className={(navData) => (navData.isActive ? 'active' : '')}
                 to="/my-work"
               >
-                <TellMeComponent text={['m', 'y', ' w', 'o', 'rk']} />
+                <TellMeComponent text={['m', 'y', 'w', 'o', 'rk']} />
               </NavLink>
             </li>
             <li className="link">

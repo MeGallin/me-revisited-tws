@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { adminUserDetailsAction } from '../../Store/Actions/AdminActions';
+import {
+  adminDeleteAllUserDataAction,
+  adminUserDetailsAction,
+} from '../../Store/Actions/AdminActions';
 
 import SpinnerComponent from '../Spinner/SpinnerComponent';
 import ToasterComponent from '../Toaster/ToasterComponent';
@@ -28,8 +31,17 @@ const AdminDashboardComponent = () => {
   const { loading, error, users } = adminUserDetails;
 
   const handleDeleteUser = (id) => {
-    alert(id);
+    if (
+      window.confirm(
+        `Are you sure you want to delete account?. You will be removing all their details including memories. ARE YOU SURE?`,
+      )
+    ) {
+      dispatch(adminDeleteAllUserDataAction(id));
+    }
   };
+
+  const adminDeleteUser = useSelector((state) => state.adminDeleteUser);
+  const { success, error: adminDeleteUserError } = adminDeleteUser;
 
   return (
     <>
@@ -38,7 +50,9 @@ const AdminDashboardComponent = () => {
       ) : (
         <fieldset className="fieldSet">
           <legend> {userDetails?.name}Dashboard</legend>
-          <ToasterComponent options={{ error }} />
+          <ToasterComponent
+            options={{ error, adminDeleteUserError, success }}
+          />
 
           {users?.map((user) =>
             !user.isAdmin ? (

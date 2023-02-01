@@ -1,28 +1,30 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+
 import './ToasterComponent.css';
 import { FaCheck, FaExclamation, FaTimes } from 'react-icons/fa';
 import 'animate.css';
 
 const ToasterComponent = ({ options }) => {
-  const [error, setError] = useState(options?.error || options.googleError);
-  const [success, setSuccess] = useState(
-    options?.success || options.googleSuccess,
+  const [error, setError] = useState(
+    options?.error || options?.googleError || options?.adminDeleteUserError,
   );
-  const dispatch = useDispatch();
+  const [success, setSuccess] = useState(
+    options?.success || options?.googleSuccess,
+  );
 
-  const handleToasterClose = () => {
-    setError(undefined);
-    setSuccess(undefined);
-  };
   useEffect(() => {
     const interval = setTimeout(() => {
       setError(undefined);
       setSuccess(undefined);
     }, 6000);
     return () => clearInterval(interval);
-  }, [dispatch]);
+  }, [options]);
 
+  const handleToasterClose = () => {
+    setError(undefined);
+    setSuccess(undefined);
+  };
+  console.log(options);
   return (
     <>
       {success || error ? (
