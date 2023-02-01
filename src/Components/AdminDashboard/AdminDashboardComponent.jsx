@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -17,6 +17,7 @@ import AdminIPAddressComponent from '../AdminIPAddresses/AdminIPAddressComponent
 import AdminContactEmailsComponent from '../AdminContactEmails/AdminContactEmailsComponent';
 
 const AdminDashboardComponent = () => {
+  const [showIPToggle, setShowIPToggle] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
@@ -154,25 +155,42 @@ const AdminDashboardComponent = () => {
                         )}
                       </span>
                     </div>
+                    <div>
+                      <ButtonComponent
+                        text="Delete this user"
+                        variant="danger"
+                        disabled={false}
+                        onClick={() => handleDeleteUser(user._id)}
+                      />
+                    </div>
                   </div>
-                  <ButtonComponent
-                    text="Delete this user"
-                    variant="danger"
-                    disabled={false}
-                    onClick={() => handleDeleteUser(user._id)}
-                  />
                 </div>
               ) : null,
             )}
           </fieldset>
 
           <fieldset className="fieldSet">
-            <legend>Received Emails</legend>
-            <AdminContactEmailsComponent />
-          </fieldset>
-          <fieldset className="fieldSet">
-            <legend> Page Hit IP addresses</legend>
-            <AdminIPAddressComponent />
+            <legend>views</legend>
+            <div>
+              <ButtonComponent
+                type="button"
+                disabled={false}
+                text={showIPToggle ? 'show emails' : 'show IP Addresses'}
+                variant={showIPToggle ? 'primary' : 'info'}
+                onClick={() => setShowIPToggle((prev) => (prev = !prev))}
+              />
+            </div>
+            {showIPToggle ? (
+              <fieldset className="fieldSet">
+                <legend> Page Hit IP addresses</legend>
+                <AdminIPAddressComponent />
+              </fieldset>
+            ) : (
+              <fieldset className="fieldSet">
+                <legend>Received Emails</legend>
+                <AdminContactEmailsComponent />
+              </fieldset>
+            )}
           </fieldset>
         </>
       )}

@@ -1,5 +1,5 @@
 .admin_dashboard_wrapper {
-  border: 1px solid var(--border-colour-dark);
+  border: 4px solid var(--border-colour-dark);
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 1em;
@@ -7,8 +7,8 @@
 }
 
 .admin_dashboard_wrapper__img {
-  height: 100%;
-  width: 100%;
+  height: 80px;
+  width: 80px;
   margin: auto;
 }
 
