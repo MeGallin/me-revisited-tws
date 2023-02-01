@@ -1,11 +1,8 @@
 import React from 'react';
+import DownloaderComponent from '../Downloader/DownloaderComponent';
 
 const MyDetailsComponent = () => {
-  return (
-    <div>
-      Notes: My CV can be downloaded and all my references will be here too.
-    </div>
-  );
+  return <DownloaderComponent />;
 };
 
 export default MyDetailsComponent;
