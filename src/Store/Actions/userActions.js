@@ -3,6 +3,9 @@ import {
   GOOGLE_USER_LOGIN_REQUEST,
   GOOGLE_USER_LOGIN_SUCCESS,
   GOOGLE_USER_LOGOUT,
+  USER_DOWNLOAD_COUNTER_FAILURE,
+  USER_DOWNLOAD_COUNTER_REQUEST,
+  USER_DOWNLOAD_COUNTER_SUCCESS,
   USER_EDIT_DETAILS_FAILURE,
   USER_EDIT_DETAILS_REQUEST,
   USER_EDIT_DETAILS_SUCCESS,
@@ -272,6 +275,38 @@ export const userResetPasswordAction = (updatedInfo) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: USER_RESET_PASSWORD_FAILURE,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+//User download counter
+export const userDownloadCounterAction = (id) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: USER_DOWNLOAD_COUNTER_REQUEST,
+    });
+    const {
+      userLogin: { userInfo },
+    } = getState();
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.post(
+      `${process.env.REACT_APP_END_POINT}api/user-download-cv/${id}`,
+      { downloadCounter: 1 },
+      config,
+    );
+    dispatch({ type: USER_DOWNLOAD_COUNTER_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: USER_DOWNLOAD_COUNTER_FAILURE,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

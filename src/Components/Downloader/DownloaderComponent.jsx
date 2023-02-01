@@ -1,7 +1,11 @@
-import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { userDownloadCounterAction } from '../../Store/Actions/userActions';
 import ButtonComponent from '../Button/ButtonComponent';
+import SpinnerComponent from '../Spinner/SpinnerComponent';
+import ToasterComponent from '../Toaster/ToasterComponent';
 
-const DownloaderComponent = () => {
+const DownloaderComponent = ({ id }) => {
+  const dispatch = useDispatch();
   const cvUrl = `${process.env.REACT_APP_CV_URL}assets/cv/dummy.pdf`;
   const handleDownload = (cvUrl) => {
     const aTag = document.createElement('a');
@@ -11,24 +15,37 @@ const DownloaderComponent = () => {
     document.body.appendChild(aTag);
     aTag.click();
     aTag.remove();
+    //Dispatch Action to counter downloads
+    dispatch(userDownloadCounterAction(id));
   };
+
+  const userDownloadCounter = useSelector((state) => state.userDownloadCounter);
+  const { loading, error, success } = userDownloadCounter;
+
   return (
-    <div style={{ margin: '1rem 0' }}>
-      <div style={{ margin: '1rem 0' }}>
-        <ButtonComponent
-          type="button"
-          disabled={false}
-          variant="info"
-          text="Download My CV"
-          onClick={() => handleDownload(cvUrl)}
-        />
-      </div>
-      <h3>The legal Stuff</h3>
-      <p>
-        If you want your details removed, please message me via my contact form
-        and I will gladly remove them.
-      </p>
-    </div>
+    <>
+      {loading ? (
+        <SpinnerComponent />
+      ) : (
+        <div style={{ margin: '1rem 0' }}>
+          <div style={{ margin: '1rem 0' }}>
+            <ButtonComponent
+              type="button"
+              disabled={false}
+              variant="info"
+              text="Download My CV"
+              onClick={() => handleDownload(cvUrl)}
+            />
+          </div>
+          <ToasterComponent options={{ error, success }} />
+          <h3>The legal Stuff</h3>
+          <p>
+            If you want your details removed, please message me via my contact
+            form and I will gladly remove them.
+          </p>
+        </div>
+      )}
+    </>
   );
 };
 
