@@ -12,6 +12,7 @@ import {
   userEditDetailsReducer,
   userForgotPasswordReducer,
   userResetPasswordReducer,
+  userDownloadCounterReducer,
 } from './Reducers/userReducers';
 
 import {
@@ -40,6 +41,7 @@ const reducer = combineReducers({
   userEditDetails: userEditDetailsReducer,
   userForgotPassword: userForgotPasswordReducer,
   userResetPassword: userResetPasswordReducer,
+  userDownloadCounter: userDownloadCounterReducer,
 });
 
 const initialState = {

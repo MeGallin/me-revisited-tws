@@ -66,7 +66,7 @@ const DashBoardComponent = () => {
           ) : (
             <>
               <CardComponent props={{ ...userDetails }} />
-              <MyDetailsComponent />
+              <MyDetailsComponent id={userDetails?._id} />
               {userDetails.isAdmin ? (
                 <ButtonComponent
                   type="button"

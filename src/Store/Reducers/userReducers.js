@@ -3,6 +3,9 @@ import {
   GOOGLE_USER_LOGIN_REQUEST,
   GOOGLE_USER_LOGIN_SUCCESS,
   GOOGLE_USER_LOGOUT,
+  USER_DOWNLOAD_COUNTER_FAILURE,
+  USER_DOWNLOAD_COUNTER_REQUEST,
+  USER_DOWNLOAD_COUNTER_SUCCESS,
   USER_EDIT_DETAILS_FAILURE,
   USER_EDIT_DETAILS_REQUEST,
   USER_EDIT_DETAILS_SUCCESS,
@@ -150,6 +153,24 @@ export const userResetPasswordReducer = (state = {}, action) => {
     case USER_RESET_PASSWORD_FAILURE:
       return { loading: false, error: action.payload };
 
+    default:
+      return { ...state };
+  }
+};
+
+//Download user counter
+export const userDownloadCounterReducer = (state = {}, action) => {
+  switch (action.type) {
+    case USER_DOWNLOAD_COUNTER_REQUEST:
+      return { loading: true };
+    case USER_DOWNLOAD_COUNTER_SUCCESS:
+      return {
+        loading: false,
+        success: true,
+        ...action.payload,
+      };
+    case USER_DOWNLOAD_COUNTER_FAILURE:
+      return { loading: false, error: action.payload };
     default:
       return { ...state };
   }
