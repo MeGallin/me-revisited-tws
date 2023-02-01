@@ -1,5 +1,11 @@
 import axios from 'axios';
 import {
+  ADMIN_GET_ALL_IP_ADDRESS_FAILURE,
+  ADMIN_GET_ALL_IP_ADDRESS_REQUEST,
+  ADMIN_GET_ALL_IP_ADDRESS_SUCCESS,
+  ADMIN_GET_CONTACT_EMAIL_FAILURE,
+  ADMIN_GET_CONTACT_EMAIL_REQUEST,
+  ADMIN_GET_CONTACT_EMAIL_SUCCESS,
   ADMIN_USER_DELETE_FAILURE,
   ADMIN_USER_DELETE_REQUEST,
   ADMIN_USER_DELETE_SUCCESS,
@@ -76,3 +82,67 @@ export const adminDeleteAllUserDataAction =
       });
     }
   };
+//GET: ADMIN contact form emails
+export const adminGetContactEmailsAction = () => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: ADMIN_GET_CONTACT_EMAIL_REQUEST,
+    });
+    const {
+      userLogin: { userInfo },
+    } = getState();
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_END_POINT}api/admin/received-emails`,
+      config,
+    );
+    dispatch({ type: ADMIN_GET_CONTACT_EMAIL_SUCCESS, payload: data });
+    dispatch(adminUserDetailsAction());
+  } catch (error) {
+    dispatch({
+      type: ADMIN_GET_CONTACT_EMAIL_FAILURE,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+//GET: ADMIN All saved IP address
+export const adminGetIpAddressesAction = (id) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: ADMIN_GET_ALL_IP_ADDRESS_REQUEST,
+    });
+    const {
+      userLogin: { userInfo },
+    } = getState();
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_END_POINT}api/admin/ip-address`,
+      config,
+    );
+    dispatch({ type: ADMIN_GET_ALL_IP_ADDRESS_SUCCESS, payload: data });
+    dispatch(adminUserDetailsAction());
+  } catch (error) {
+    dispatch({
+      type: ADMIN_GET_ALL_IP_ADDRESS_FAILURE,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};

@@ -1,0 +1,23 @@
+.admin_contact_email_wrapper {
+  border: 1px solid var(--border-colour-dark);
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1em;
+  background-color: var(--fieldSet-bg-colour);
+}
+.admin_contact_email_wrapper > * {
+  border: 1px solid var(--border-colour-light);
+  flex-grow: 1;
+  padding: 0.4em;
+}
+.admin_contact_email__group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.admin_contact_wrapper__inner_wrapper {
+  display: flex;
+  font-size: 0.7rem;
+  justify-content: space-between;
+  align-items: flex-end;
+}

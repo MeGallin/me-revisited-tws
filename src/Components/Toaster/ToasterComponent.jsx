@@ -24,7 +24,7 @@ const ToasterComponent = ({ options }) => {
     setError(undefined);
     setSuccess(undefined);
   };
-  console.log(options);
+
   return (
     <>
       {success || error ? (

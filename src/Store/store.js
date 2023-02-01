@@ -17,6 +17,8 @@ import {
 import {
   adminUserDetailsReducer,
   adminDeleteUserReducer,
+  adminGetContactEmailsReducer,
+  adminGetIpAddressesReducer,
 } from './Reducers/AdminReducer';
 
 //Initialise state to hold user info if logged in.
@@ -27,6 +29,8 @@ const userInfoFromStorage = localStorage.getItem('userInfo')
 const reducer = combineReducers({
   adminUserDetails: adminUserDetailsReducer,
   adminDeleteUser: adminDeleteUserReducer,
+  adminGetContactEmails: adminGetContactEmailsReducer,
+  adminGetIpAddresses: adminGetIpAddressesReducer,
   pageHits: pageHitsReducer,
   contactForm: contactFormReducer,
   userRegistration: userRegistrationReducer,
