@@ -28,11 +28,18 @@ const DownloaderComponent = ({ id }) => {
         <SpinnerComponent />
       ) : (
         <div style={{ margin: '1rem 0' }}>
+          <h1>Please note!</h1>
+          <p>The download button for my CV is currently disabled.</p>
+          <p>
+            I am currently updating my CV. I hope to have it ready in the next
+            few days.
+          </p>
+          <p>Thank you for your patience and understanding.</p>
           <div style={{ margin: '1rem 0' }}>
             <ButtonComponent
               type="button"
-              disabled={false}
-              variant="info"
+              disabled={true}
+              variant="warning"
               text="Download My CV"
               onClick={() => handleDownload(cvUrl)}
             />

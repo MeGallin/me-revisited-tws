@@ -47,7 +47,10 @@ const DashBoardComponent = () => {
         <SpinnerComponent />
       ) : (
         <fieldset className="fieldSet">
-          <legend>{userDetails?.name} Dashboard</legend>
+          <legend>
+            {' '}
+            <TellMeComponent text={[userDetails?.name]} /> Dashboard
+          </legend>
           <ToasterComponent options={{ error }} />
           {!userDetails?.isConfirmed ? (
             <>

@@ -284,27 +284,50 @@ export const userResetPasswordAction = (updatedInfo) => async (dispatch) => {
 };
 //User download counter
 export const userDownloadCounterAction = (id) => async (dispatch, getState) => {
+  console.log(id);
   try {
     dispatch({
       type: USER_DOWNLOAD_COUNTER_REQUEST,
     });
-    const {
-      userLogin: { userInfo },
-    } = getState();
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    };
 
-    const { data } = await axios.post(
-      `${process.env.REACT_APP_END_POINT}api/user-download-cv/${id}`,
-      { downloadCounter: 1 },
-      config,
-    );
-    dispatch({ type: USER_DOWNLOAD_COUNTER_SUCCESS, payload: data });
-    dispatch(userInfoDetailsAction());
+    if (getState().userLogin.userInfo) {
+      const {
+        userLogin: { userInfo },
+      } = getState();
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      };
+
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_END_POINT}api/user-download-cv/${id}`,
+        { downloadCounter: 1 },
+        config,
+      );
+      dispatch({ type: USER_DOWNLOAD_COUNTER_SUCCESS, payload: data });
+      dispatch(userInfoDetailsAction());
+    }
+    if (getState().googleUserLogin.userInfo) {
+      const {
+        googleUserLogin: { userInfo },
+      } = getState();
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      };
+
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_END_POINT}api/user-download-cv/${id}`,
+        { downloadCounter: 1 },
+        config,
+      );
+      dispatch({ type: USER_DOWNLOAD_COUNTER_SUCCESS, payload: data });
+      dispatch(userInfoDetailsAction());
+    }
   } catch (error) {
     dispatch({
       type: USER_DOWNLOAD_COUNTER_FAILURE,
