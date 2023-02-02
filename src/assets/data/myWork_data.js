@@ -9,6 +9,12 @@ export const myWorkData = [
     url: 'https://yourcorporatememory.com',
     description:
       'A productivity tool designed to help you save mundane tasks and and information. ',
+    icons: [
+      { name: 'react JS', path: '../assets/images/react-2.svg' },
+      { name: 'redux', path: '../assets/images/redux.svg' },
+      { name: 'mongoDB', path: '../assets/images/mongodb.svg' },
+      { name: 'node JS', path: '../assets/images/nodejs.svg' },
+    ],
     features: [
       'Custom Authentication-register-login-reset functionality.',
       'Private user admin area and dashboard.',
@@ -26,6 +32,12 @@ export const myWorkData = [
     url: 'https://clubmanager.livenotice.co.uk/',
     description:
       'A productivity tool aimed at social clubs to assist with their admin tasks.',
+    icons: [
+      { name: 'react JS', path: '../assets/images/react-2.svg' },
+      { name: 'redux', path: '../assets/images/redux.svg' },
+      { name: 'mongoDB', path: '../assets/images/mongodb.svg' },
+      { name: 'node JS', path: '../assets/images/nodejs.svg' },
+    ],
     features: [
       'Custom Authentication-register-login-reset functionality.',
       'Private user admin area and dashboard.',
@@ -43,6 +55,12 @@ export const myWorkData = [
     url: 'https://dev.garyallin.uk/home',
     description:
       'My personal website to demonstrate some of my web development skills and work experience.',
+    icons: [
+      { name: 'react JS', path: '../assets/images/react-2.svg' },
+      { name: 'redux', path: '../assets/images/redux.svg' },
+      { name: 'mongoDB', path: '../assets/images/mongodb.svg' },
+      { name: 'node JS', path: '../assets/images/nodejs.svg' },
+    ],
     features: [
       'Custom Authentication-register-login-reset functionality.',
       'Private ADMIN dashboard.',

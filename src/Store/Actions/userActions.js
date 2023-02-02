@@ -304,6 +304,7 @@ export const userDownloadCounterAction = (id) => async (dispatch, getState) => {
       config,
     );
     dispatch({ type: USER_DOWNLOAD_COUNTER_SUCCESS, payload: data });
+    dispatch(userInfoDetailsAction());
   } catch (error) {
     dispatch({
       type: USER_DOWNLOAD_COUNTER_FAILURE,

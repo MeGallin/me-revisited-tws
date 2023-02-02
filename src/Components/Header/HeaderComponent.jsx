@@ -26,7 +26,14 @@ const HeaderComponent = () => {
     <>
       <header>
         <nav>
-          <LogoComponent />
+          <NavLink
+            onClick={() => setToggleHamburger((prev) => (prev = !prev))}
+            className={(navData) => (navData.isActive ? 'active' : '')}
+            to="/"
+          >
+            <LogoComponent />
+          </NavLink>
+
           <div
             className="hamburger"
             onClick={() => setToggleHamburger((prev) => (prev = !prev))}
@@ -61,7 +68,7 @@ const HeaderComponent = () => {
                 className={(navData) => (navData.isActive ? 'active' : '')}
                 to="/my-work"
               >
-                <TellMeComponent text={['m', 'y', 'w', 'o', 'rk']} />
+                <TellMeComponent text={['m', 'y', ' w', 'o', 'rk']} />
               </NavLink>
             </li>
             <li className="link">

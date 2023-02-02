@@ -1,9 +1,9 @@
 import { useId } from 'react';
 import './MyWorkCardComponent.css';
 import PropTypes from 'prop-types';
+import IconsComponent from '../Icons/IconsComponent';
 
 const MyWorkCardComponent = ({ options }) => {
-  //   console.log(options);
   const id = useId();
   return options.map((option, i) => (
     <div key={`${id}-option-${i}`} className="my_work_card_wrapper">
@@ -49,6 +49,7 @@ const MyWorkCardComponent = ({ options }) => {
           <sup>DESCRIPTION:</sup>
         </span>
         <p>{option.description}</p>
+        <IconsComponent options={option.icons?.map((icon) => icon)} />
       </div>
       <div>
         <span className="my_work_card_title">

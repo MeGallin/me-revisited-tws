@@ -122,6 +122,10 @@ const AdminDashboardComponent = () => {
                       <span>{user.loginCounter}</span>
                     </div>
                     <div>
+                      <span className="details-label">Download Count: </span>
+                      <span>{user.downloadCounter}</span>
+                    </div>
+                    <div>
                       <span className="details-label">Confirmed email: </span>
                       <span>
                         {user.isConfirmed ? (
