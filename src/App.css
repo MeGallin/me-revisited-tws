@@ -8,13 +8,12 @@ body {
 }
 
 p {
-  font-size: clamp(1.6rem, 1.25vh, 1.25rem);
-  font-size: max(1.6rem, 1.125vw);
-  text-align: left;
-  margin-bottom: 0.4rem;
   font-size: 16px;
-  line-height: 1.4rem;
-  /* margin-bottom: 1em; */
+  font-size: clamp(1rem, 1.25vh, 1.25rem);
+  font-size: max(1rem, 1vw);
+  text-align: left;
+  margin-bottom: 0.5rem;
+  line-height: 1.6rem;
 }
 h3 {
   display: inline-block;

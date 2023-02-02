@@ -4,13 +4,13 @@ import './IconsComponent.css';
 const IconsComponent = ({ options }) => {
   return (
     <div className="icons_wrapper">
-      {options.map((img) => (
-        <span key={img.name}>
+      {options?.map((img) => (
+        <span key={img?.name}>
           <img
             className="icon"
-            src={img.path}
-            alt={img.name}
-            title={img.name}
+            src={img?.path}
+            alt={img?.name}
+            title={img?.name}
           />
         </span>
       ))}

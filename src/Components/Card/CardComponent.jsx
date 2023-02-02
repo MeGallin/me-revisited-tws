@@ -36,6 +36,10 @@ const CardComponent = ({ props }) => {
           {props.loginCounter}
         </div>
         <div>
+          <span className="details-label">Download Counter: </span>
+          {props.downloadCounter}
+        </div>
+        <div>
           <span className="details-label">Admin rights: </span>
           <span>
             {props.isAdmin ? (
