@@ -9,6 +9,7 @@ import SpinnerComponent from '../Spinner/SpinnerComponent';
 import ToasterComponent from '../Toaster/ToasterComponent';
 
 import { nameRegEx, emailRegEx, passwordRegEx } from '../../Utils/regEx';
+import TellMeComponent from '../TellMe/TellMeComponent';
 
 const RegisterComponent = () => {
   const dispatch = useDispatch();
@@ -46,7 +47,9 @@ const RegisterComponent = () => {
         <SpinnerComponent />
       ) : (
         <fieldset className="fieldSet">
-          <legend>Registration</legend>
+          <legend>
+            <TellMeComponent text={['Regis', 'ter']} />
+          </legend>
           <ToasterComponent options={{ error, success }} />
 
           <form onSubmit={handleRegistrationSubmit}>

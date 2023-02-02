@@ -7,6 +7,7 @@ import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import InputComponent from '../Input/InputComponent';
 import ButtonComponent from '../Button/ButtonComponent';
 import SpinnerComponent from '../Spinner/SpinnerComponent';
+import TellMeComponent from '../TellMe/TellMeComponent';
 import {
   loginAction,
   googleUserLoginAction,
@@ -75,7 +76,10 @@ const LoginComponent = () => {
         <SpinnerComponent />
       ) : (
         <fieldset className="fieldSet">
-          <legend>Login</legend>
+          <legend>
+            {' '}
+            <TellMeComponent text={['log', 'in']} />
+          </legend>
           <ToasterComponent
             options={{ error, success, googleError, googleSuccess }}
           />

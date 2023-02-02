@@ -8,6 +8,7 @@ import InputComponent from '../Input/InputComponent';
 import ButtonComponent from '../Button/ButtonComponent';
 import SpinnerComponent from '../Spinner/SpinnerComponent';
 import ToasterComponent from '../Toaster/ToasterComponent';
+import TellMeComponent from '../TellMe/TellMeComponent';
 
 const ForgotPasswordComponent = () => {
   const dispatch = useDispatch();
@@ -33,13 +34,16 @@ const ForgotPasswordComponent = () => {
         <SpinnerComponent />
       ) : (
         <fieldset className="fieldSet">
-          <legend>Forgot Password Form</legend>
+          <legend>
+            {' '}
+            <TellMeComponent text={['forgot', ' pas', 's', 'word']} />
+          </legend>
           <ToasterComponent options={{ error, success }} />
 
           <div>
             <p>
-              Simply send us your email address and we will send you an email
-              with a reset link.
+              Send me your email address, I will send you an email with a reset
+              link.
             </p>
             <form onSubmit={handleForgotPWSubmit}>
               <InputComponent
