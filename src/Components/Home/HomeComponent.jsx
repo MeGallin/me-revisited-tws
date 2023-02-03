@@ -1,41 +1,20 @@
-import IconsComponent from '../Icons/IconsComponent';
+import { NavLink } from 'react-router-dom';
 import TellMeComponent from '../TellMe/TellMeComponent';
 import TextHighLightComponent from '../TextHighLight/TextHighLightComponent';
 import BetaReleaseComponent from '../BetaRelease/BetaReleaseComponent';
 
 const HomeComponent = () => {
   const thisIsMe = ['Wh', 'at', ' I', ' Do!'];
-  const imageRoutesTop = [
-    { name: 'react JS', path: '../assets/images/react-2.svg' },
-    { name: 'redux', path: '../assets/images/redux.svg' },
-    { name: 'mongoDB', path: '../assets/images/mongodb.svg' },
-    { name: 'node JS', path: '../assets/images/nodejs.svg' },
-    { name: 'auth zero', path: '../assets/images/auth0.svg' },
-    { name: 'CSS', path: '../assets/images/css3.svg' },
-    { name: 'html', path: '../assets/images/html5.svg' },
-    { name: 'javascript', path: '../assets/images/javascript.svg' },
-  ];
-  const imageRoutesBottom = [
-    { name: 'vue', path: '../assets/images/vue-js-1.svg' },
-    { name: 'typescript', path: '../assets/images/typescript.svg' },
-    { name: 'rxjs', path: '../assets/images/rxjs-1.svg' },
-    { name: 'ngrx', path: '../assets/images/ngrx.svg' },
-    { name: 'angular', path: '../assets/images/angular-icon.svg' },
-    { name: 'bootstrap', path: '../assets/images/bootstrap-5-1.svg' },
-    { name: 'jquery', path: '../assets/images/jquery.svg' },
-    { name: 'php', path: '../assets/images/php-1.svg' },
-    { name: 'mysql', path: '../assets/images/mySql.svg' },
-  ];
+
   return (
     <fieldset className="fieldSet">
       <BetaReleaseComponent />
       <legend>
         <TellMeComponent text={[...thisIsMe]} />
       </legend>
-      <IconsComponent options={[...imageRoutesTop]} />
+
       <div>
         <h1>Web and browser development</h1>
-
         <p>
           I am a web <TextHighLightComponent text={'developer'} /> currently
           located in Guildford, Surrey in the United Kingdom. Utilizing my
@@ -83,7 +62,10 @@ const HomeComponent = () => {
           project.
         </p>
       </div>
-      <IconsComponent options={[...imageRoutesBottom]} />
+
+      <NavLink to="/recent-past">
+        <mark>Checkout my playground.</mark>
+      </NavLink>
     </fieldset>
   );
 };

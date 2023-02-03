@@ -1,0 +1,24 @@
+.icons_click_wrapper {
+  display: flex;
+
+  padding: 0.2em;
+  align-content: center;
+}
+.icons_click_wrapper p {
+  margin-right: 1em;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  color: var(--info);
+  opacity: 0.8;
+}
+.icons_click_wrapper p:hover {
+  cursor: pointer;
+  opacity: 1;
+  transition: all 0.8s ease-in-out;
+}
+.angel-up-icon {
+  color: var(--info);
+}
+.angel-down-icon {
+  color: var(--info);
+}
