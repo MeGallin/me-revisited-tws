@@ -59,7 +59,7 @@ const RecentPastComponent = () => {
         <TellMeComponent text={['My', ' Playground']} />
       </legend>
 
-      <h1>Present</h1>
+      <h1>As we speak</h1>
       {showPresently ? (
         <>
           <div
