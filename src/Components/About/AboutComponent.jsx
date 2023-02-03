@@ -1,15 +1,39 @@
 import '../../Css/textHighlight.css';
+import IconsComponent from '../Icons/IconsComponent';
 import TellMeComponent from '../TellMe/TellMeComponent';
 import TextHighLightComponent from '../TextHighLight/TextHighLightComponent';
 
 const AboutComponent = () => {
   const text = [' about', ' me'];
+  const imageRoutesTop = [
+    { name: 'react JS', path: '../assets/images/react-2.svg' },
+    { name: 'redux', path: '../assets/images/redux.svg' },
+    { name: 'mongoDB', path: '../assets/images/mongodb.svg' },
+    { name: 'node JS', path: '../assets/images/nodejs.svg' },
+    { name: 'auth zero', path: '../assets/images/auth0.svg' },
+    { name: 'CSS', path: '../assets/images/css3.svg' },
+    { name: 'html', path: '../assets/images/html5.svg' },
+    { name: 'javascript', path: '../assets/images/javascript.svg' },
+  ];
+  const imageRoutesBottom = [
+    { name: 'vue', path: '../assets/images/vue-js-1.svg' },
+    { name: 'typescript', path: '../assets/images/typescript.svg' },
+    { name: 'rxjs', path: '../assets/images/rxjs-1.svg' },
+    { name: 'ngrx', path: '../assets/images/ngrx.svg' },
+    { name: 'angular', path: '../assets/images/angular-icon.svg' },
+    { name: 'bootstrap', path: '../assets/images/bootstrap-5-1.svg' },
+    { name: 'jquery', path: '../assets/images/jquery.svg' },
+    { name: 'php', path: '../assets/images/php-1.svg' },
+    { name: 'mysql', path: '../assets/images/mySql.svg' },
+  ];
   return (
     <fieldset className="fieldSet">
       <legend>
         <TellMeComponent text={[...text]} />
       </legend>
+
       <div>
+        <IconsComponent options={[...imageRoutesTop]} />
         <h1>Skills Summary</h1>
         <p>Proficient in HTML(5) and CSS(3), javascript and jQuery.</p>
         <p>
@@ -33,6 +57,7 @@ const AboutComponent = () => {
         </p>
         <p>Experience in server-side web development using PHP, PDO.</p>
 
+        <IconsComponent options={[...imageRoutesBottom]} />
         <h1>Technologies</h1>
         <p>
           <TextHighLightComponent text={'MERN'} /> stack.
