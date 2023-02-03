@@ -118,8 +118,8 @@ const LoginComponent = () => {
                 variant="dark"
                 disabled={!emailRegEx.test(email) || password.length <= 5}
               />
-
-              <div
+              {/* Disabled the google button until api has been reset. */}
+              {/* <div
                 style={{
                   padding: '2px 2px 4px 2px',
                   backgroundColor: 'hsla(0deg, 0%, 45%, 0.1)',
@@ -133,7 +133,7 @@ const LoginComponent = () => {
                     onError={googleFailure}
                   />
                 </GoogleOAuthProvider>
-              </div>
+              </div> */}
             </div>
           </form>
         </fieldset>
