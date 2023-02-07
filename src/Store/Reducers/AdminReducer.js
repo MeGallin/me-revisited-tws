@@ -5,6 +5,9 @@ import {
   ADMIN_GET_CONTACT_EMAIL_FAILURE,
   ADMIN_GET_CONTACT_EMAIL_REQUEST,
   ADMIN_GET_CONTACT_EMAIL_SUCCESS,
+  ADMIN_UPLOAD_FILE_FAILURE,
+  ADMIN_UPLOAD_FILE_REQUEST,
+  ADMIN_UPLOAD_FILE_SUCCESS,
   ADMIN_USER_DELETE_FAILURE,
   ADMIN_USER_DELETE_REQUEST,
   ADMIN_USER_DELETE_SUCCESS,
@@ -77,6 +80,23 @@ export const adminGetIpAddressesReducer = (state = {}, action) => {
         ...action.payload,
       };
     case ADMIN_GET_ALL_IP_ADDRESS_FAILURE:
+      return { loading: false, error: action.payload };
+    default:
+      return { ...state };
+  }
+};
+//POST: ADMIN Upload a file
+export const adminFileUploadReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ADMIN_UPLOAD_FILE_REQUEST:
+      return { loading: true };
+    case ADMIN_UPLOAD_FILE_SUCCESS:
+      return {
+        loading: false,
+        success: true,
+        ...action.payload,
+      };
+    case ADMIN_UPLOAD_FILE_FAILURE:
       return { loading: false, error: action.payload };
     default:
       return { ...state };

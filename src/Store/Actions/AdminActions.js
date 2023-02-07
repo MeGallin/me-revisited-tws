@@ -6,6 +6,9 @@ import {
   ADMIN_GET_CONTACT_EMAIL_FAILURE,
   ADMIN_GET_CONTACT_EMAIL_REQUEST,
   ADMIN_GET_CONTACT_EMAIL_SUCCESS,
+  ADMIN_UPLOAD_FILE_FAILURE,
+  ADMIN_UPLOAD_FILE_REQUEST,
+  ADMIN_UPLOAD_FILE_SUCCESS,
   ADMIN_USER_DELETE_FAILURE,
   ADMIN_USER_DELETE_REQUEST,
   ADMIN_USER_DELETE_SUCCESS,
@@ -146,3 +149,41 @@ export const adminGetIpAddressesAction = (id) => async (dispatch, getState) => {
     });
   }
 };
+
+//POST: ADMIN Upload a file
+export const adminFileUploadAction =
+  (formData) => async (dispatch, getState) => {
+    console.log(formData);
+    try {
+      dispatch({
+        type: ADMIN_UPLOAD_FILE_REQUEST,
+      });
+      const {
+        userLogin: { userInfo },
+      } = getState();
+      const config = {
+        headers: {
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      };
+
+      //Check the file type
+
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_END_POINT}api/admin/file-upload`,
+        formData,
+        config,
+      );
+
+      dispatch({ type: ADMIN_UPLOAD_FILE_SUCCESS, payload: data });
+      dispatch(adminUserDetailsAction());
+    } catch (error) {
+      dispatch({
+        type: ADMIN_UPLOAD_FILE_FAILURE,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };

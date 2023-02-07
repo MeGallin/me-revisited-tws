@@ -20,6 +20,7 @@ import {
   adminDeleteUserReducer,
   adminGetContactEmailsReducer,
   adminGetIpAddressesReducer,
+  adminFileUploadReducer,
 } from './Reducers/AdminReducer';
 
 //Initialise state to hold user info if logged in.
@@ -32,6 +33,7 @@ const reducer = combineReducers({
   adminDeleteUser: adminDeleteUserReducer,
   adminGetContactEmails: adminGetContactEmailsReducer,
   adminGetIpAddresses: adminGetIpAddressesReducer,
+  adminFileUpload: adminFileUploadReducer,
   pageHits: pageHitsReducer,
   contactForm: contactFormReducer,
   userRegistration: userRegistrationReducer,
