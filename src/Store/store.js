@@ -23,6 +23,8 @@ import {
   adminFileUploadReducer,
 } from './Reducers/AdminReducer';
 
+import { saveAnalyticsReducer } from './Reducers/analyticsReducer';
+
 //Initialise state to hold user info if logged in.
 const userInfoFromStorage = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))
@@ -44,6 +46,7 @@ const reducer = combineReducers({
   userForgotPassword: userForgotPasswordReducer,
   userResetPassword: userResetPasswordReducer,
   userDownloadCounter: userDownloadCounterReducer,
+  saveAnalytics: saveAnalyticsReducer,
 });
 
 const initialState = {
