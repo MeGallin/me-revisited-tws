@@ -13,6 +13,7 @@ const InputComponent = ({
   error,
   className,
   onChange,
+  multiple,
 }) => {
   const inputFocus = useRef(null);
   const [showPassword, setShowPassword] = useState(false);
@@ -60,6 +61,7 @@ const InputComponent = ({
         error={error}
         className={className}
         onChange={onChange}
+        multiple={multiple}
       />
 
       {error && <p className="validation-error">{error}</p>}
@@ -78,6 +80,7 @@ InputComponent.propTypes = {
   placeholder: PropTypes.string,
   error: PropTypes.string,
   onChange: PropTypes.func,
+  multiple: PropTypes.bool,
 };
 
 export default InputComponent;

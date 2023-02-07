@@ -9,6 +9,7 @@ import SpinnerComponent from '../Spinner/SpinnerComponent';
 import TellMeComponent from '../TellMe/TellMeComponent';
 import ToasterComponent from '../Toaster/ToasterComponent';
 import ButtonComponent from '../Button/ButtonComponent';
+import UploadComponent from '../Upload/UploadComponent';
 
 const DashBoardComponent = () => {
   const navigate = useNavigate();
@@ -69,15 +70,19 @@ const DashBoardComponent = () => {
           ) : (
             <>
               <CardComponent props={{ ...userDetails }} />
+
               <MyDetailsComponent id={userDetails?._id} />
               {userDetails.isAdmin ? (
-                <ButtonComponent
-                  type="button"
-                  text="Admin Dashboard"
-                  disabled={false}
-                  variant="info"
-                  onClick={handleLink}
-                />
+                <>
+                  <UploadComponent />
+                  <ButtonComponent
+                    type="button"
+                    text="Admin Dashboard"
+                    disabled={false}
+                    variant="info"
+                    onClick={handleLink}
+                  />
+                </>
               ) : null}
             </>
           )}
