@@ -153,7 +153,6 @@ export const adminGetIpAddressesAction = (id) => async (dispatch, getState) => {
 //POST: ADMIN Upload a file
 export const adminFileUploadAction =
   (formData) => async (dispatch, getState) => {
-    console.log(formData);
     try {
       dispatch({
         type: ADMIN_UPLOAD_FILE_REQUEST,

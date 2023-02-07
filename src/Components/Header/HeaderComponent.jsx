@@ -8,6 +8,7 @@ import LogoComponent from '../Logo/LogoComponent';
 import TellMeComponent from '../TellMe/TellMeComponent';
 
 import { logoutAction } from '../../Store/Actions/userActions';
+import { saveAnalyticsAction } from '../../Store/Actions/analyticsActions';
 
 const HeaderComponent = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,20 @@ const HeaderComponent = () => {
   const googleUserLogin = useSelector((state) => state.googleUserLogin);
   const { userInfo: googleUserInfo } = googleUserLogin;
 
+  const handleNavigation = () => {
+    setToggleHamburger((prev) => (prev = !prev));
+
+    const analytics = {
+      referrer: document.referrer,
+      location: document.location.href,
+      languages: window.navigator.languages,
+      platform: window.navigator.platform,
+      userAgent: window.navigator.userAgent,
+      screen: window.screen,
+    };
+    dispatch(saveAnalyticsAction(analytics));
+  };
+
   const handleLogout = () => {
     dispatch(logoutAction());
   };
@@ -27,17 +42,14 @@ const HeaderComponent = () => {
       <header>
         <nav>
           <NavLink
-            onClick={() => setToggleHamburger((prev) => (prev = !prev))}
+            onClick={handleNavigation}
             className={(navData) => (navData.isActive ? 'active' : '')}
             to="/"
           >
             <LogoComponent />
           </NavLink>
 
-          <div
-            className="hamburger"
-            onClick={() => setToggleHamburger((prev) => (prev = !prev))}
-          >
+          <div className="hamburger" onClick={handleNavigation}>
             <div className="line"></div>
             <div className="line"></div>
             <div className="line"></div>
@@ -46,7 +58,7 @@ const HeaderComponent = () => {
           <ul className={!toggleHamburger ? 'nav_links' : 'nav_links open'}>
             <li className="link">
               <NavLink
-                onClick={() => setToggleHamburger((prev) => (prev = !prev))}
+                onClick={handleNavigation}
                 className={(navData) => (navData.isActive ? 'active' : '')}
                 to="/"
               >
@@ -55,7 +67,7 @@ const HeaderComponent = () => {
             </li>
             <li className="link">
               <NavLink
-                onClick={() => setToggleHamburger((prev) => (prev = !prev))}
+                onClick={handleNavigation}
                 className={(navData) => (navData.isActive ? 'active' : '')}
                 to="/about"
               >
@@ -64,7 +76,7 @@ const HeaderComponent = () => {
             </li>
             <li className="link">
               <NavLink
-                onClick={() => setToggleHamburger((prev) => (prev = !prev))}
+                onClick={handleNavigation}
                 className={(navData) => (navData.isActive ? 'active' : '')}
                 to="/my-work"
               >
@@ -73,7 +85,7 @@ const HeaderComponent = () => {
             </li>
             <li className="link">
               <NavLink
-                onClick={() => setToggleHamburger((prev) => (prev = !prev))}
+                onClick={handleNavigation}
                 className={(navData) => (navData.isActive ? 'active' : '')}
                 to="/contact"
               >
@@ -85,7 +97,7 @@ const HeaderComponent = () => {
               <>
                 <li className="link">
                   <NavLink
-                    onClick={() => setToggleHamburger((prev) => (prev = !prev))}
+                    onClick={handleNavigation}
                     className={(navData) => (navData.isActive ? 'active' : '')}
                     to="/dashboard"
                   >
@@ -104,7 +116,7 @@ const HeaderComponent = () => {
               <>
                 <li className="link">
                   <NavLink
-                    onClick={() => setToggleHamburger((prev) => (prev = !prev))}
+                    onClick={handleNavigation}
                     className={(navData) => (navData.isActive ? 'active' : '')}
                     to="/cv"
                   >
