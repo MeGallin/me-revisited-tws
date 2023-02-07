@@ -12,7 +12,9 @@ const HomeComponent = () => {
       <legend>
         <TellMeComponent text={[...thisIsMe]} />
       </legend>
-
+      <NavLink to="/recent-past">
+        <span className="marked_text">Checkout my playground.</span>
+      </NavLink>
       <div>
         <h1>Web and browser development</h1>
         <p>
@@ -23,9 +25,9 @@ const HomeComponent = () => {
           constructed to enhance and streamline business operations.
         </p>
         <p>
-          I am a self-taught web <mark>developer</mark> with a passion for
-          learning web development and a strong belief in the advancement of the
-          web.
+          I am a self-taught web <span className="marked_text">developer</span>{' '}
+          with a passion for learning web development and a strong belief in the
+          advancement of the web.
         </p>
         <p>
           I am concise, diligent and conscientious and find logical and clear
@@ -55,17 +57,13 @@ const HomeComponent = () => {
         </p>
         <p>
           In summary, I am a highly motivated, self-taught web{' '}
-          <mark>developer</mark> with a passion for learning, problem-solving,
-          and collaboration. With my strong technical skills, dedication to
-          quality, and ability to work well under pressure, I am confident in my
-          ability to make a valuable contribution to any web development
-          project.
+          <span className="marked_text">developer</span> with a passion for
+          learning, problem-solving, and collaboration. With my strong technical
+          skills, dedication to quality, and ability to work well under
+          pressure, I am confident in my ability to make a valuable contribution
+          to any web development project.
         </p>
       </div>
-
-      <NavLink to="/recent-past">
-        <mark>Checkout my playground.</mark>
-      </NavLink>
     </fieldset>
   );
 };

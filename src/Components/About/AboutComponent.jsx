@@ -38,7 +38,7 @@ const AboutComponent = () => {
         <p>Proficient in HTML(5) and CSS(3), javascript and jQuery.</p>
         <p>
           Commercial experience <TextHighLightComponent text={'ReactJS'} /> and{' '}
-          <mark>REDUX</mark>.
+          <span className="marked_text">REDUX</span>.
         </p>
         <p>
           Commercial experience <TextHighLightComponent text={'nodeJS'} /> and{' '}
@@ -63,8 +63,8 @@ const AboutComponent = () => {
           <TextHighLightComponent text={'MERN'} /> stack.
         </p>
         <p>
-          ReactJS(v18), react router(v6) and <mark>REDUX</mark> state
-          management.
+          ReactJS(v18), react router(v6) and{' '}
+          <span className="marked_text">REDUX</span> state management.
         </p>
         <p>
           AngularJS and Angular(v2+) and ngrx, RXJS, Typescript and Angular Cli.
@@ -73,7 +73,8 @@ const AboutComponent = () => {
         <p>HTML, CSS(3) and BootStrap(3/4), Javascript and ES6, jQuery, PHP.</p>
         <p>NodeJS and Express.</p>
         <p>
-          <mark>GITHUB</mark>, GitLab and GIT version control.
+          <span className="marked_text">GITHUB</span>, GitLab and GIT version
+          control.
         </p>
 
         <h1>Project Management</h1>

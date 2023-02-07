@@ -74,7 +74,14 @@ ul[class],
 ol[class] {
   list-style: none;
 }
-
+a {
+  color: var(--info);
+  opacity: 0.8;
+}
+a:hover {
+  opacity: 1;
+  transition: all 0.8s;
+}
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
