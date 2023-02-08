@@ -15,6 +15,7 @@ import { FaRegThumbsUp, FaRegThumbsDown } from 'react-icons/fa';
 import ButtonComponent from '../Button/ButtonComponent';
 import AdminIPAddressComponent from '../AdminIPAddresses/AdminIPAddressComponent';
 import AdminContactEmailsComponent from '../AdminContactEmails/AdminContactEmailsComponent';
+import AnalyticsDashboardComponent from '../AnalyticsDashboard/AnalyticsDashboardComponent';
 
 const AdminDashboardComponent = () => {
   const [showIPToggle, setShowIPToggle] = useState(false);
@@ -28,8 +29,7 @@ const AdminDashboardComponent = () => {
     dispatch(adminUserDetailsAction());
     if (!ignore) return () => (ignore = true);
   }, [dispatch, navigate, userInfo]);
-  const userInfoDetails = useSelector((state) => state.userInfoDetails);
-  const { userDetails } = userInfoDetails;
+
   const adminUserDetails = useSelector((state) => state.adminUserDetails);
   const { loading, error, users } = adminUserDetails;
 
@@ -53,7 +53,7 @@ const AdminDashboardComponent = () => {
       ) : (
         <>
           <fieldset className="fieldSet">
-            <legend> {userDetails?.name}Dashboard</legend>
+            <legend> Registered User Details</legend>
             <ToasterComponent
               options={{ error, adminDeleteUserError, success }}
             />
@@ -174,7 +174,13 @@ const AdminDashboardComponent = () => {
           </fieldset>
 
           <fieldset className="fieldSet">
+            <legend>Analytics</legend>
+            <AnalyticsDashboardComponent />
+          </fieldset>
+
+          <fieldset className="fieldSet">
             <legend>views</legend>
+
             <div>
               <ButtonComponent
                 type="button"
