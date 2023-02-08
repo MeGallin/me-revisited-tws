@@ -30,7 +30,8 @@ const HeaderComponent = () => {
       userAgent: window.navigator.userAgent,
       screen: window.screen,
     };
-    dispatch(saveAnalyticsAction(analytics));
+    if (!analytics.location.includes('http://localhost'))
+      return dispatch(saveAnalyticsAction(analytics));
   };
 
   const handleLogout = () => {
