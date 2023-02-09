@@ -1,6 +1,6 @@
 import './AnalyticsInfoComponent.css';
 import moment from 'moment';
-import { PieChart, Pie, Tooltip } from 'recharts';
+import { PieChart, Pie, Tooltip, ResponsiveContainer } from 'recharts';
 import { useState } from 'react';
 
 const AnalyticsInfoComponent = ({ props }) => {
@@ -18,13 +18,45 @@ const AnalyticsInfoComponent = ({ props }) => {
   const cv = props[0].cvRoute;
   const dashboard = props[0].dashboardRoute;
 
+  const homeColour = 'rgba(240, 173, 78, 1)';
+  const aboutColour = 'rgba(190, 79, 12, 1)';
+  const myWorkColour = 'rgba(236, 127, 55, 1)';
+  const contactColour = 'rgba(255, 99, 0, 1)';
+  const cVColour = 'crimson';
+  const dashboardColour = 'lightBlue';
+
   const data = [
-    { id: '1', name: 'Home', value: home?.length },
-    { id: '2', name: 'About', value: about?.length },
-    { id: '3', name: 'My Work', value: myWork?.length },
-    { id: '4', name: 'Contact', value: contact?.length },
-    { id: '5', name: 'CV', value: cv?.length },
-    { id: '6', name: 'Dashboard', value: dashboard?.length },
+    {
+      id: '1',
+      name: 'Home',
+      value: home?.length,
+      fill: homeColour,
+    },
+    {
+      id: '2',
+      name: 'About',
+      value: about?.length,
+      fill: aboutColour,
+    },
+    {
+      id: '3',
+      name: 'My Work',
+      value: myWork?.length,
+      fill: myWorkColour,
+    },
+    {
+      id: '4',
+      name: 'Contact',
+      value: contact?.length,
+      fill: contactColour,
+    },
+    { id: '5', name: 'CV', value: cv?.length, fill: cVColour },
+    {
+      id: '6',
+      name: 'Dashboard',
+      value: dashboard?.length,
+      fill: dashboardColour,
+    },
   ];
 
   const handleChart = (e) => {
@@ -62,129 +94,263 @@ const AnalyticsInfoComponent = ({ props }) => {
   return (
     <div className="analytics_wrapper">
       <div className="item">
-        <PieChart width={340} height={340}>
-          <Pie
-            dataKey="value"
-            isAnimationActive={true}
-            data={data}
-            cx="50%"
-            cy="50%"
-            outerRadius={136}
-            fill="lightBlue"
-            label
-            onClick={(e) => handleChart(e)}
-          />
-          <Tooltip />
-        </PieChart>
+        <h3>Click a Segment For Details</h3>
+        <div style={{ width: '100%', height: 360, margin: '10px auto' }}>
+          <ResponsiveContainer>
+            <PieChart>
+              <Pie
+                dataKey="value"
+                isAnimationActive={true}
+                data={data}
+                cx="50%"
+                cy="50%"
+                outerRadius={136}
+                stroke="pink"
+                percentage={16}
+                label
+                onClick={(e) => handleChart(e)}
+              />
+              <Tooltip />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
       </div>
 
-      {showHome ? (
-        <div>
-          <h3>Home Route</h3>
-          <h4>{home?.length} hits.</h4>
-          {home?.map((route) => (
-            <div key={route._id} className="item">
-              <p>Referrer: {route.referrer}</p>
-              <p>location: {route.location}</p>
-              <p>platform: {route.platform}</p>
-              <p>languages: {route.languages}</p>
-              <p>IP: {route.ipAddress}</p>
-              <p>User Agent: {route.userAgent}</p>
-              <p>created: {moment(route.updatedAt).format('Do MMM YYYY')}</p>
+      <div className="item">
+        {showHome ? (
+          <div>
+            <div className="item_header">
+              <h3 style={showHome ? { color: homeColour } : null}>
+                Home Route
+              </h3>
+              <h4>{home?.length} hits.</h4>
             </div>
-          ))}
-        </div>
-      ) : null}
 
-      {showAbout ? (
-        <div>
-          <h3>About Route</h3>
-          <h4>{about?.length} hits.</h4>
-          {about?.map((route) => (
-            <div key={route._id} className="item">
-              <p>Referrer: {route.referrer}</p>
-              <p>location: {route.location}</p>
-              <p>platform: {route.platform}</p>
-              <p>languages: {route.languages}</p>
-              <p>IP: {route.ipAddress}</p>
-              <p>User Agent: {route.userAgent}</p>
-              <p>created: {moment(route.updatedAt).format('Do MMM YYYY')}</p>
+            {home?.map((route) => (
+              <div key={route._id} className="item_content">
+                <div className="item_content_item">
+                  <div>Referrer</div>
+                  <p>{route.referrer}</p>
+                  <div>location</div>
+                  <p>{route.location}</p>
+                  <div>IP</div>
+                  <p>{route.ipAddress}</p>
+                </div>
+                <div className="item_content_item">
+                  <div>platform</div>
+                  <p> {route.platform}</p>
+                  <div>languages</div>
+                  <p> {route.languages}</p>
+                </div>
+                <div className="item_content_item">
+                  <div>User Agent</div>
+                  <p> {route.userAgent}</p>
+                </div>
+                <div className="item_content_item">
+                  <div>Hits</div>
+                  <p>
+                    {moment(new Date()).diff(moment(route.createdAt), 'days')}{' '}
+                    days ago.
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : null}
+        {showAbout ? (
+          <div>
+            <div className="item_header">
+              <h3 style={showAbout ? { color: aboutColour } : null}>
+                About Route
+              </h3>
+              <h4>{about?.length} hits.</h4>
             </div>
-          ))}
-        </div>
-      ) : null}
-
-      {showMyWork ? (
-        <div>
-          <h3>My-Work Route</h3>
-          <h4>{myWork?.length} hits.</h4>
-          {myWork?.map((route) => (
-            <div key={route._id} className="item">
-              <p>Referrer: {route.referrer}</p>
-              <p>location: {route.location}</p>
-              <p>platform: {route.platform}</p>
-              <p>languages: {route.languages}</p>
-              <p>IP: {route.ipAddress}</p>
-              <p>User Agent: {route.userAgent}</p>
-              <p>created: {moment(route.updatedAt).format('Do MMM YYYY')}</p>
+            {about?.map((route) => (
+              <div key={route._id} className="item_content">
+                <div className="item_content_item">
+                  <div>Referrer</div>
+                  <p>{route.referrer}</p>
+                  <div>location</div>
+                  <p>{route.location}</p>
+                  <div>IP</div>
+                  <p>{route.ipAddress}</p>
+                </div>
+                <div className="item_content_item">
+                  <div>platform</div>
+                  <p> {route.platform}</p>
+                  <div>languages</div>
+                  <p> {route.languages}</p>
+                </div>
+                <div className="item_content_item">
+                  <div>User Agent</div>
+                  <p> {route.userAgent}</p>
+                </div>
+                <div className="item_content_item">
+                  <div>Hits</div>
+                  <p>
+                    {moment(new Date()).diff(moment(route.createdAt), 'days')}{' '}
+                    days ago.
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : null}
+        {showMyWork ? (
+          <div>
+            <div className="item_header">
+              <h3 style={showMyWork ? { color: myWorkColour } : null}>
+                My-Work Route
+              </h3>
+              <h4>{myWork?.length} hits.</h4>
             </div>
-          ))}
-        </div>
-      ) : null}
-
-      {showContact ? (
-        <div>
-          <h3>Contact Route</h3>
-          <h4>{contact?.length} hits.</h4>
-          {contact?.map((route) => (
-            <div key={route._id} className="item">
-              <p>Referrer: {route.referrer}</p>
-              <p>location: {route.location}</p>
-              <p>platform: {route.platform}</p>
-              <p>languages: {route.languages}</p>
-              <p>IP: {route.ipAddress}</p>
-              <p>User Agent: {route.userAgent}</p>
-              <p>created: {moment(route.updatedAt).format('Do MMM YYYY')}</p>
+            {myWork?.map((route) => (
+              <div key={route._id} className="item_content">
+                <div className="item_content_item">
+                  <div>Referrer</div>
+                  <p>{route.referrer}</p>
+                  <div>location</div>
+                  <p>{route.location}</p>
+                  <div>IP</div>
+                  <p>{route.ipAddress}</p>
+                </div>
+                <div className="item_content_item">
+                  <div>platform</div>
+                  <p> {route.platform}</p>
+                  <div>languages</div>
+                  <p> {route.languages}</p>
+                </div>
+                <div className="item_content_item">
+                  <div>User Agent</div>
+                  <p> {route.userAgent}</p>
+                </div>
+                <div className="item_content_item">
+                  <div>Hits</div>
+                  <p>
+                    {moment(new Date()).diff(moment(route.createdAt), 'days')}{' '}
+                    days ago.
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : null}
+        {showContact ? (
+          <div>
+            <div className="item_header">
+              <h3 style={showContact ? { color: contactColour } : null}>
+                Contact Route
+              </h3>
+              <h4>{contact?.length} hits.</h4>
             </div>
-          ))}
-        </div>
-      ) : null}
-
-      {showCV ? (
-        <div>
-          <h3>CV Route</h3>
-          <h4>{cv?.length} hits.</h4>
-          {cv?.map((route) => (
-            <div key={route._id} className="item">
-              <p>Referrer: {route.referrer}</p>
-              <p>location: {route.location}</p>
-              <p>platform: {route.platform}</p>
-              <p>languages: {route.languages}</p>
-              <p>IP: {route.ipAddress}</p>
-              <p>User Agent: {route.userAgent}</p>
-              <p>created: {moment(route.updatedAt).format('Do MMM YYYY')}</p>
+            {contact?.map((route) => (
+              <div key={route._id} className="item_content">
+                <div className="item_content_item">
+                  <div>Referrer</div>
+                  <p>{route.referrer}</p>
+                  <div>location</div>
+                  <p>{route.location}</p>
+                  <div>IP</div>
+                  <p>{route.ipAddress}</p>
+                </div>
+                <div className="item_content_item">
+                  <div>platform</div>
+                  <p> {route.platform}</p>
+                  <div>languages</div>
+                  <p> {route.languages}</p>
+                </div>
+                <div className="item_content_item">
+                  <div>User Agent</div>
+                  <p> {route.userAgent}</p>
+                </div>
+                <div className="item_content_item">
+                  <div>Hits</div>
+                  <p>
+                    {moment(new Date()).diff(moment(route.createdAt), 'days')}{' '}
+                    days ago.
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : null}
+        {showCV ? (
+          <div>
+            <div className="item_header">
+              <h3 style={showCV ? { color: cVColour } : null}>CV Route</h3>
+              <h4>{cv?.length} hits.</h4>
             </div>
-          ))}
-        </div>
-      ) : null}
-
-      {showDashboard ? (
-        <div>
-          <h3>Dashboard Route</h3>
-          <h4>{dashboard?.length} hits.</h4>
-          {dashboard?.map((route) => (
-            <div key={route._id} className="item">
-              <p>Referrer: {route.referrer}</p>
-              <p>location: {route.location}</p>
-              <p>platform: {route.platform}</p>
-              <p>languages: {route.languages}</p>
-              <p>IP: {route.ipAddress}</p>
-              <p>User Agent: {route.userAgent}</p>
-              <p>created: {moment(route.updatedAt).format('Do MMM YYYY')}</p>
+            {cv?.map((route) => (
+              <div key={route._id} className="item_content">
+                <div className="item_content_item">
+                  <div>Referrer</div>
+                  <p>{route.referrer}</p>
+                  <div>location</div>
+                  <p>{route.location}</p>
+                  <div>IP</div>
+                  <p>{route.ipAddress}</p>
+                </div>
+                <div className="item_content_item">
+                  <div>platform</div>
+                  <p> {route.platform}</p>
+                  <div>languages</div>
+                  <p> {route.languages}</p>
+                </div>
+                <div className="item_content_item">
+                  <div>User Agent</div>
+                  <p> {route.userAgent}</p>
+                </div>
+                <div className="item_content_item">
+                  <div>Hits</div>
+                  <p>
+                    {moment(new Date()).diff(moment(route.createdAt), 'days')}{' '}
+                    days ago.
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : null}
+        {showDashboard ? (
+          <div>
+            <div className="item_header">
+              <h3 style={showDashboard ? { color: dashboardColour } : null}>
+                Dashboard Route
+              </h3>
+              <h4>{dashboard?.length} hits.</h4>
             </div>
-          ))}
-        </div>
-      ) : null}
+            {dashboard?.map((route) => (
+              <div key={route._id} className="item_content">
+                <div className="item_content_item">
+                  <div>Referrer</div>
+                  <p>{route.referrer}</p>
+                  <div>location</div>
+                  <p>{route.location}</p>
+                  <div>IP</div>
+                  <p>{route.ipAddress}</p>
+                </div>
+                <div className="item_content_item">
+                  <div>platform</div>
+                  <p> {route.platform}</p>
+                  <div>languages</div>
+                  <p> {route.languages}</p>
+                </div>
+                <div className="item_content_item">
+                  <div>User Agent</div>
+                  <p> {route.userAgent}</p>
+                </div>
+                <div className="item_content_item">
+                  <div>Hits</div>
+                  <p>
+                    {moment(new Date()).diff(moment(route.createdAt), 'days')}{' '}
+                    days ago.
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 };

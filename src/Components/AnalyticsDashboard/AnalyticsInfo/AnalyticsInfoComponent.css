@@ -13,8 +13,30 @@
   border: 1px solid var(--border-colour-dark);
   padding: 0.2em;
 }
-.item p {
-  margin: 0;
-  padding: 0;
+.item_header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item_content {
+  padding: 0.2em;
+  border: 1px solid var(--border-colour-light);
+  display: flex;
+}
+.item_content_item {
+  border: 1px solid var(--border-colour-dark);
+  padding: 0.2em;
+}
+.item_content_item div {
+  padding: 0.2em;
   font-size: 0.7rem;
+  text-decoration: underline;
+  text-transform: uppercase;
+  text-align: center;
+}
+.item_content_item p {
+  text-decoration: none;
+  text-transform: lowercase;
+  font-size: 0.9em;
+  text-align: center;
 }
