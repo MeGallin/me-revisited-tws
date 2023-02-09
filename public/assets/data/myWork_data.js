@@ -65,6 +65,7 @@ export const myWorkData = [
       'Custom Authentication-register-login-reset functionality.',
       'Private ADMIN dashboard.',
       "Private admin dashboard registered USER's to download my CV and references.",
+      'Custom site analytics within the dashboard.',
     ],
   },
 ];
