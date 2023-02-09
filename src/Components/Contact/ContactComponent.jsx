@@ -67,7 +67,7 @@ const ContactComponent = () => {
                 className={!nameRegEx.test(name) ? 'invalid' : 'entered'}
                 error={
                   !nameRegEx.test(name) && name.length !== 0
-                    ? `Name must contain at least 5 characters`
+                    ? `You need to provide a name and surname`
                     : null
                 }
                 onChange={handleOnChange}
@@ -87,7 +87,7 @@ const ContactComponent = () => {
                 onChange={handleOnChange}
               />
               <TextAreaComponent
-                label="How can T help you?"
+                label="How can I help you?"
                 id="message"
                 name="message"
                 value={message}

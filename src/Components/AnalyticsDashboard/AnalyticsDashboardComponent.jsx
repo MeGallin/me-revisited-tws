@@ -4,7 +4,8 @@ import { getAnalyticsAction } from '../../Store/Actions/analyticsActions';
 import SpinnerComponent from '../Spinner/SpinnerComponent';
 import ToasterComponent from '../Toaster/ToasterComponent';
 import './AnalyticsDashboardComponent.css';
-import moment from 'moment';
+
+import AnalyticsInfoComponent from './AnalyticsInfo/AnalyticsInfoComponent';
 
 const AnalyticsDashboardComponent = () => {
   const dispatch = useDispatch();
@@ -84,111 +85,19 @@ const AnalyticsDashboardComponent = () => {
       ) : (
         <>
           <ToasterComponent options={{ error }} />
-          <div className="analytics_wrapper">
-            <div>
-              <h3>Home Route</h3>
-              <h4>{homeRoute?.length} hits.</h4>
-              {homeRoute?.map((route) => (
-                <div key={route._id} className="item">
-                  <p>Referrer: {route.referrer}</p>
-                  <p>location: {route.location}</p>
-                  <p>platform: {route.platform}</p>
-                  <p>languages: {route.languages}</p>
-                  <p>IP: {route.ipAddress}</p>
-                  <p>User Agent: {route.userAgent}</p>
-                  <p>
-                    created: {moment(route.updatedAt).format('Do MMM YYYY')}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <div>
-              {' '}
-              <h3>About Route</h3>
-              <h4>{aboutRoute?.length} hits.</h4>
-              {aboutRoute?.map((route) => (
-                <div key={route._id} className="item">
-                  <p>Referrer: {route.referrer}</p>
-                  <p>location: {route.location}</p>
-                  <p>platform: {route.platform}</p>
-                  <p>languages: {route.languages}</p>
-                  <p>IP: {route.ipAddress}</p>
-                  <p>User Agent: {route.userAgent}</p>
-                  <p>
-                    created: {moment(route.updatedAt).format('Do MMM YYYY')}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <div>
-              <h3>My-Work Route</h3>
-              <h4>{myWorkRoute?.length} hits.</h4>
-              {myWorkRoute?.map((route) => (
-                <div key={route._id} className="item">
-                  <p>Referrer: {route.referrer}</p>
-                  <p>location: {route.location}</p>
-                  <p>platform: {route.platform}</p>
-                  <p>languages: {route.languages}</p>
-                  <p>IP: {route.ipAddress}</p>
-                  <p>User Agent: {route.userAgent}</p>
-                  <p>
-                    created: {moment(route.updatedAt).format('Do MMM YYYY')}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <div>
-              <h3>Contact Route</h3>
-              <h4>{contactRoute?.length} hits.</h4>
-              {contactRoute?.map((route) => (
-                <div key={route._id} className="item">
-                  <p>Referrer: {route.referrer}</p>
-                  <p>location: {route.location}</p>
-                  <p>platform: {route.platform}</p>
-                  <p>languages: {route.languages}</p>
-                  <p>IP: {route.ipAddress}</p>
-                  <p>User Agent: {route.userAgent}</p>
-                  <p>
-                    created: {moment(route.updatedAt).format('Do MMM YYYY')}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <div>
-              <h3>CV Route</h3>
-              <h4>{cvRoute?.length} hits.</h4>
-              {cvRoute?.map((route) => (
-                <div key={route._id} className="item">
-                  <p>Referrer: {route.referrer}</p>
-                  <p>location: {route.location}</p>
-                  <p>platform: {route.platform}</p>
-                  <p>languages: {route.languages}</p>
-                  <p>IP: {route.ipAddress}</p>
-                  <p>User Agent: {route.userAgent}</p>
-                  <p>
-                    created: {moment(route.updatedAt).format('Do MMM YYYY')}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <div>
-              <h3>Dashboard Route</h3>
-              <h4>{dashboardRoute?.length} hits.</h4>
-              {dashboardRoute?.map((route) => (
-                <div key={route._id} className="item">
-                  <p>Referrer: {route.referrer}</p>
-                  <p>location: {route.location}</p>
-                  <p>platform: {route.platform}</p>
-                  <p>languages: {route.languages}</p>
-                  <p>IP: {route.ipAddress}</p>
-                  <p>User Agent: {route.userAgent}</p>
-                  <p>
-                    created: {moment(route.updatedAt).format('Do MMM YYYY')}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+
+          <AnalyticsInfoComponent
+            props={[
+              {
+                homeRoute,
+                aboutRoute,
+                myWorkRoute,
+                contactRoute,
+                dashboardRoute,
+                cvRoute,
+              },
+            ]}
+          />
         </>
       )}
     </>
