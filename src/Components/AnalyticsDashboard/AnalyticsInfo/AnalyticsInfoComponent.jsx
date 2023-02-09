@@ -1,7 +1,7 @@
 import './AnalyticsInfoComponent.css';
 import moment from 'moment';
 import { PieChart, Pie, Tooltip, ResponsiveContainer } from 'recharts';
-import { useState } from 'react';
+import { useState, useReducer } from 'react';
 
 const AnalyticsInfoComponent = ({ props }) => {
   const [showHome, setShowHome] = useState(true);

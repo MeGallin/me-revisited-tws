@@ -52,7 +52,7 @@ export const myWorkData = [
       'https://github.com/MeGallin/me-revisited-tws',
       'https://github.com/MeGallin/me-revisited-api',
     ],
-    url: 'https://dev.garyallin.uk/home',
+    url: 'https://garyallin.uk/',
     description:
       'My personal website to demonstrate some of my web development skills and work experience.',
     icons: [

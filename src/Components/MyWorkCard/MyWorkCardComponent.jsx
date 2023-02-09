@@ -14,6 +14,7 @@ const MyWorkCardComponent = ({ options }) => {
         <div>
           <h2>{option.title}</h2>
         </div>
+        <IconsComponent options={option.icons?.map((icon) => icon)} />
       </div>
       <div>
         <span className="my_work_card_title">
@@ -49,7 +50,6 @@ const MyWorkCardComponent = ({ options }) => {
           <sup>DESCRIPTION:</sup>
         </span>
         <p>{option.description}</p>
-        <IconsComponent options={option.icons?.map((icon) => icon)} />
       </div>
       <div>
         <span className="my_work_card_title">
