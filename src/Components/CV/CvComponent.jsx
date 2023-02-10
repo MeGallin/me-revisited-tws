@@ -33,6 +33,13 @@ const CvComponent = () => {
           Once you have registered, you will be directed to a secure page where
           you will be presented with a link to download a PDF copy of my CV.
         </p>
+        <h3>Play Ground</h3>
+        <p>
+          {' '}
+          <NavLink to="/recent-past">
+            <span className="marked_text">Checkout my playground.</span>
+          </NavLink>
+        </p>
 
         <h1>Timeline</h1>
         <p>Here is a timeline covering the past few years.</p>

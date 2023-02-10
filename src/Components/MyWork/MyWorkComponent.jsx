@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import MyWorkCardComponent from '../MyWorkCard/MyWorkCardComponent';
 import TellMeComponent from '../TellMe/TellMeComponent';
 import './MyWorkComponent.css';
@@ -11,6 +12,9 @@ const MyWorkComponent = () => {
       </legend>
 
       <div>
+        <NavLink to="/recent-past">
+          <span className="marked_text">Checkout my playground.</span>
+        </NavLink>
         <MyWorkCardComponent options={myWorkData} />
       </div>
     </fieldset>

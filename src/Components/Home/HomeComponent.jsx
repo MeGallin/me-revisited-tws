@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import TellMeComponent from '../TellMe/TellMeComponent';
 import TextHighLightComponent from '../TextHighLight/TextHighLightComponent';
 import BetaReleaseComponent from '../BetaRelease/BetaReleaseComponent';
@@ -12,9 +11,7 @@ const HomeComponent = () => {
       <legend>
         <TellMeComponent text={[...thisIsMe]} />
       </legend>
-      <NavLink to="/recent-past">
-        <span className="marked_text">Checkout my playground.</span>
-      </NavLink>
+
       <div>
         <h1>Web and browser development</h1>
         <p>
