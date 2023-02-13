@@ -1,9 +1,31 @@
+import { useState, useEffect } from 'react';
 import './AnalyticsInfoComponent.css';
+
 import moment from 'moment';
-import { PieChart, Pie, Tooltip, ResponsiveContainer } from 'recharts';
-import { useState, useReducer } from 'react';
+import {
+  PieChart,
+  Pie,
+  Tooltip,
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Legend,
+} from 'recharts';
 
 const AnalyticsInfoComponent = ({ props }) => {
+  useEffect(() => {
+    'fired';
+    setHome(props[0].homeRoute);
+    setAbout(props[0].aboutRoute);
+    setMyWork(props[0].myWorkRoute);
+    setContact(props[0].contactRoute);
+    setCv(props[0].cvRoute);
+    setDashboard(props[0].dashboardRoute);
+  }, [props]);
+
   const [showHome, setShowHome] = useState(true);
   const [showAbout, setShowAbout] = useState(false);
   const [showMyWork, setShowMyWork] = useState(false);
@@ -11,12 +33,12 @@ const AnalyticsInfoComponent = ({ props }) => {
   const [showCV, setShowCV] = useState(false);
   const [showDashboard, setShowDashboard] = useState(false);
 
-  const home = props[0].homeRoute;
-  const about = props[0].aboutRoute;
-  const myWork = props[0].myWorkRoute;
-  const contact = props[0].contactRoute;
-  const cv = props[0].cvRoute;
-  const dashboard = props[0].dashboardRoute;
+  const [home, setHome] = useState([]);
+  const [about, setAbout] = useState([]);
+  const [myWork, setMyWork] = useState([]);
+  const [contact, setContact] = useState([]);
+  const [cv, setCv] = useState([]);
+  const [dashboard, setDashboard] = useState([]);
 
   const homeColour = 'rgba(240, 173, 78, 1)';
   const aboutColour = 'rgba(190, 79, 12, 1)';
@@ -58,6 +80,26 @@ const AnalyticsInfoComponent = ({ props }) => {
       fill: dashboardColour,
     },
   ];
+
+  function getUniqueIpAddresses(obj) {
+    const seenIpAddresses = new Map();
+    const uniqueIpAddresses = [];
+    for (const key in obj) {
+      const item = obj[key];
+      if (!seenIpAddresses.has(item.ipAddress)) {
+        seenIpAddresses.set(item.ipAddress, 1);
+      } else {
+        seenIpAddresses.set(
+          item.ipAddress,
+          seenIpAddresses.get(item.ipAddress) + 1,
+        );
+      }
+    }
+    for (const [ipAddress, count] of seenIpAddresses) {
+      uniqueIpAddresses.push({ name: ipAddress, hits: count });
+    }
+    return uniqueIpAddresses;
+  }
 
   const handleChart = (e) => {
     setShowHome(false);
@@ -113,6 +155,140 @@ const AnalyticsInfoComponent = ({ props }) => {
               <Tooltip />
             </PieChart>
           </ResponsiveContainer>
+        </div>
+        <div style={{ width: '100%', height: 360, margin: '10px auto' }}>
+          {showHome ? (
+            <ResponsiveContainer>
+              <BarChart
+                width={500}
+                height={300}
+                data={getUniqueIpAddresses(home)}
+                margin={{
+                  top: 5,
+                  right: 30,
+                  left: 20,
+                  bottom: 5,
+                }}
+              >
+                <CartesianGrid strokeDasharray="0.3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="hits" fill="#8884d8" />
+              </BarChart>
+            </ResponsiveContainer>
+          ) : null}
+          {showAbout ? (
+            <ResponsiveContainer>
+              <BarChart
+                width={500}
+                height={300}
+                data={getUniqueIpAddresses(about)}
+                margin={{
+                  top: 5,
+                  right: 30,
+                  left: 20,
+                  bottom: 5,
+                }}
+              >
+                <CartesianGrid strokeDasharray="0.3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="hits" fill="#8884d8" />
+              </BarChart>
+            </ResponsiveContainer>
+          ) : null}
+          {showMyWork ? (
+            <ResponsiveContainer>
+              <BarChart
+                width={500}
+                height={300}
+                data={getUniqueIpAddresses(myWork)}
+                margin={{
+                  top: 5,
+                  right: 30,
+                  left: 20,
+                  bottom: 5,
+                }}
+              >
+                <CartesianGrid strokeDasharray="0.3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="hits" fill="#8884d8" />
+              </BarChart>
+            </ResponsiveContainer>
+          ) : null}
+          {showContact ? (
+            <ResponsiveContainer>
+              <BarChart
+                width={500}
+                height={300}
+                data={getUniqueIpAddresses(contact)}
+                margin={{
+                  top: 5,
+                  right: 30,
+                  left: 20,
+                  bottom: 5,
+                }}
+              >
+                <CartesianGrid strokeDasharray="0.3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="hits" fill="#8884d8" />
+              </BarChart>
+            </ResponsiveContainer>
+          ) : null}
+          {showCV ? (
+            <ResponsiveContainer>
+              <BarChart
+                width={500}
+                height={300}
+                data={getUniqueIpAddresses(cv)}
+                margin={{
+                  top: 5,
+                  right: 30,
+                  left: 20,
+                  bottom: 5,
+                }}
+              >
+                <CartesianGrid strokeDasharray="0.3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="hits" fill="#8884d8" />
+              </BarChart>
+            </ResponsiveContainer>
+          ) : null}
+          {showDashboard ? (
+            <ResponsiveContainer>
+              <BarChart
+                width={500}
+                height={300}
+                data={getUniqueIpAddresses(dashboard)}
+                margin={{
+                  top: 5,
+                  right: 30,
+                  left: 20,
+                  bottom: 5,
+                }}
+              >
+                <CartesianGrid strokeDasharray="0.3 3" />
+                <XAxis dataKey="`name`" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="hits" fill="#8884d8" />
+              </BarChart>
+            </ResponsiveContainer>
+          ) : null}
         </div>
       </div>
 
