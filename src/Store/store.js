@@ -28,6 +28,8 @@ import {
   getAnalyticsReducer,
 } from './Reducers/analyticsReducer';
 
+import { presentlyReducer, myNewsReducer } from './Reducers/fileUploadReducers';
+
 //Initialise state to hold user info if logged in.
 const userInfoFromStorage = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))
@@ -51,6 +53,8 @@ const reducer = combineReducers({
   userDownloadCounter: userDownloadCounterReducer,
   saveAnalytics: saveAnalyticsReducer,
   getAnalytics: getAnalyticsReducer,
+  myNews: myNewsReducer,
+  presently: presentlyReducer,
 });
 
 const initialState = {

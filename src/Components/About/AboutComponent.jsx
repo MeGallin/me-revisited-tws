@@ -35,27 +35,35 @@ const AboutComponent = () => {
       <div>
         <IconsComponent options={[...imageRoutesTop]} />
         <h1>Skills Summary</h1>
-        <p>Proficient in HTML(5) and CSS(3), javascript and jQuery.</p>
         <p>
-          Commercial experience <TextHighLightComponent text={'ReactJS'} /> and{' '}
-          <span className="marked_text">REDUX</span>.
+          Comfortable in front-end technologies, including HTML5, CSS3,
+          JavaScript, jQuery and Bootstrap 3/4.
         </p>
         <p>
-          Commercial experience <TextHighLightComponent text={'nodeJS'} /> and{' '}
-          <TextHighLightComponent text={'express'} />
+          Experienced in <TextHighLightComponent text={'reactJS'} /> and{' '}
+          <span className="marked_text">REDUX</span>, as well as{' '}
+          <TextHighLightComponent text={'nodejs'} /> and{' '}
+          <span className="marked_text">EXPRESS</span> for server-side
+          development.
         </p>
         <p>
-          Commercial experience in <TextHighLightComponent text={'angularJS'} />{' '}
-          and <TextHighLightComponent text={'angular2/6'} />
+          Experienced in <TextHighLightComponent text={'angularJS'} /> and{' '}
+          <TextHighLightComponent text={'angular2/6'} />, and familiar with
+          TypeScript and ES6.
         </p>
-        <p>Familiar with typescript and ES6.</p>
+        <p>Good knowledge of databases such as MongoDB and MySQL</p>
+        <p>Understanding of Agile methodology and workflow.</p>
+        <p>
+          Good understanding in code versioning tools such as Git and using
+          GitHub and GitLab
+        </p>
         <p>Comfortable using Linex terminal.</p>
-        <p>Comfortable with Bootstrap 3/4.</p>
+        <p>Familiar with Webpack and writing bash scripts.</p>
         <p>
-          Skilled in responsive web design, cross-browser compatibility, and
+          Experienced in responsive web design, cross-browser compatibility, and
           hard coding flexible sites.
         </p>
-        <p>Experience in server-side web development using PHP, PDO.</p>
+        <p>Experience in server-side web development using NODEJS and PHP.</p>
 
         <IconsComponent options={[...imageRoutesBottom]} />
         <h1>Technologies</h1>
@@ -66,12 +74,13 @@ const AboutComponent = () => {
           ReactJS(v18), react router(v6) and{' '}
           <span className="marked_text">REDUX</span> state management.
         </p>
+        <p>NodeJS and Express.</p>
+        <p>MongoDB and MySQL</p>
         <p>
           AngularJS and Angular(v2+) and ngrx, RXJS, Typescript and Angular Cli.
         </p>
         <p>VueJs(2/3), VueX, Vue Cli.</p>
         <p>HTML, CSS(3) and BootStrap(3/4), Javascript and ES6, jQuery, PHP.</p>
-        <p>NodeJS and Express.</p>
         <p>
           <span className="marked_text">GITHUB</span>, GitLab and GIT version
           control.

@@ -17,7 +17,6 @@ import {
 
 const AnalyticsInfoComponent = ({ props }) => {
   useEffect(() => {
-    'fired';
     setHome(props[0].homeRoute);
     setAbout(props[0].aboutRoute);
     setMyWork(props[0].myWorkRoute);
@@ -84,6 +83,7 @@ const AnalyticsInfoComponent = ({ props }) => {
   function getUniqueIpAddresses(obj) {
     const seenIpAddresses = new Map();
     const uniqueIpAddresses = [];
+
     for (const key in obj) {
       const item = obj[key];
       if (!seenIpAddresses.has(item.ipAddress)) {
@@ -95,6 +95,7 @@ const AnalyticsInfoComponent = ({ props }) => {
         );
       }
     }
+
     for (const [ipAddress, count] of seenIpAddresses) {
       uniqueIpAddresses.push({ name: ipAddress, hits: count });
     }
