@@ -1,57 +1,54 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import TellMeComponent from '../TellMe/TellMeComponent';
 import { FaAngleDoubleDown, FaAngleDoubleUp } from 'react-icons/fa';
 import './RecentPastComponent.css';
+import {
+  myNewsAction,
+  presentlyAction,
+} from '../../Store/Actions/fileUploadActions';
+import SpinnerComponent from '../Spinner/SpinnerComponent';
+import ToasterComponent from '../Toaster/ToasterComponent';
 
 const RecentPastComponent = () => {
+  const dispatch = useDispatch();
   const [showPresently, setShowPresently] = useState(true);
   const [showRecentPast, setShowRecentPast] = useState(false);
   const [showNews, setShowNews] = useState(false);
-  const [news, setNews] = useState('');
-  const [presently, setPresently] = useState('');
-
-  useEffect(() => {
-    async function fetchNewsApi() {
-      try {
-        let response = await fetch(
-          `${process.env.REACT_APP_CV_URL}assets/data/news.txt`,
-        );
-        response = await response.text();
-        setNews(response);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchNewsApi();
-    async function fetchPresentlyApi() {
-      try {
-        let response = await fetch(
-          `${process.env.REACT_APP_CV_URL}assets/data/presently.txt`,
-        );
-        response = await response.text();
-        setPresently(response);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchPresentlyApi();
-  }, []);
 
   const handleShowSection = (option) => {
     switch (option) {
       case 'presently':
+        //Dispatch Action
+        dispatch(presentlyAction());
         setShowPresently((prev) => (prev = !prev));
+
         break;
       case 'news':
+        //Dispatch Action
+        dispatch(myNewsAction());
         setShowNews((prev) => (prev = !prev));
+
         break;
       case 'recentPast':
         setShowRecentPast((prev) => (prev = !prev));
+        //Dispatch Action
+
         break;
       default:
         break;
     }
   };
+
+  const presently = useSelector((state) => state.presently);
+  const {
+    loading: presentlyLoading,
+    error: presentlyError,
+    data: presentlyData,
+  } = presently;
+
+  const myNews = useSelector((state) => state.myNews);
+  const { loading, error, data } = myNews;
 
   return (
     <fieldset className="fieldSet">
@@ -60,6 +57,9 @@ const RecentPastComponent = () => {
       </legend>
 
       <h1>As we speak</h1>
+      {presentlyError ? (
+        <ToasterComponent options={{ presentlyError }} />
+      ) : null}
       {showPresently ? (
         <>
           <div
@@ -69,7 +69,12 @@ const RecentPastComponent = () => {
             <p>Done reading?</p>{' '}
             <FaAngleDoubleUp className="angel-up-icon" size={22} />
           </div>
-          <div dangerouslySetInnerHTML={{ __html: presently }}></div>
+
+          {presentlyLoading ? (
+            <SpinnerComponent />
+          ) : (
+            <div dangerouslySetInnerHTML={{ __html: presentlyData }}></div>
+          )}
         </>
       ) : (
         <>
@@ -223,6 +228,7 @@ const RecentPastComponent = () => {
       )}
 
       <h2>Obscure</h2>
+      {error ? <ToasterComponent options={{ error }} /> : null}
       {showNews ? (
         <>
           <div
@@ -232,7 +238,12 @@ const RecentPastComponent = () => {
             <p>Done reading?</p>{' '}
             <FaAngleDoubleUp className="angel-up-icon" size={22} />
           </div>
-          <div dangerouslySetInnerHTML={{ __html: news }}></div>
+
+          {loading ? (
+            <SpinnerComponent />
+          ) : (
+            <div dangerouslySetInnerHTML={{ __html: data }}></div>
+          )}
         </>
       ) : (
         <div

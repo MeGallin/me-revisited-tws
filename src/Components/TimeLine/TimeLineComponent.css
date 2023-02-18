@@ -60,6 +60,7 @@
   text-align: center;
   background-color: black;
   line-height: 1;
+  border: 1px solid var(--warning);
 }
 .timeline__item--year:before {
   display: none;
