@@ -1,3 +1,8 @@
+.recent_past_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 .icons_click_wrapper {
   display: flex;
 
@@ -10,6 +15,7 @@
   margin-bottom: 0;
   color: var(--info);
   opacity: 0.8;
+  font-size: 0.8em;
 }
 .icons_click_wrapper p:hover {
   cursor: pointer;
