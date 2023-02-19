@@ -5,6 +5,9 @@ import {
   GET_PRESENTLY_FAILURE,
   GET_PRESENTLY_REQUEST,
   GET_PRESENTLY_SUCCESS,
+  GET_RECENT_PAST_FAILURE,
+  GET_RECENT_PAST_REQUEST,
+  GET_RECENT_PAST_SUCCESS,
 } from '../Constants/fileUploadConstants';
 
 //GET my work news
@@ -37,6 +40,24 @@ export const presentlyReducer = (state = {}, action) => {
         ...action.payload,
       };
     case GET_PRESENTLY_FAILURE:
+      return { loading: false, error: action.payload };
+
+    default:
+      return { ...state };
+  }
+};
+//GET my work RECENT PAST
+export const recentPastReducer = (state = {}, action) => {
+  switch (action.type) {
+    case GET_RECENT_PAST_REQUEST:
+      return { loading: true };
+    case GET_RECENT_PAST_SUCCESS:
+      return {
+        loading: false,
+        success: true,
+        ...action.payload,
+      };
+    case GET_RECENT_PAST_FAILURE:
       return { loading: false, error: action.payload };
 
     default:
