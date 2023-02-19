@@ -64,98 +64,105 @@ const RecentPastComponent = () => {
       <legend>
         <TellMeComponent text={['My', ' Playground']} />
       </legend>
+      <div className="recent_past_wrapper">
+        <div>
+          <h2>As we speak</h2>
+          {presentlyError ? (
+            <ToasterComponent options={{ presentlyError }} />
+          ) : null}
+          {showPresently ? (
+            <>
+              <div
+                onClick={() => handleShowSection('presently')}
+                className="icons_click_wrapper"
+              >
+                <p>Done reading?</p>{' '}
+                <FaAngleDoubleUp className="angel-up-icon" size={22} />
+              </div>
 
-      <h1>As we speak</h1>
-      {presentlyError ? (
-        <ToasterComponent options={{ presentlyError }} />
-      ) : null}
-      {showPresently ? (
-        <>
-          <div
-            onClick={() => handleShowSection('presently')}
-            className="icons_click_wrapper"
-          >
-            <p>Done reading?</p>{' '}
-            <FaAngleDoubleUp className="angel-up-icon" size={22} />
-          </div>
-
-          {presentlyLoading ? (
-            <SpinnerComponent />
+              {presentlyLoading ? (
+                <SpinnerComponent />
+              ) : (
+                <div dangerouslySetInnerHTML={{ __html: presentlyData }}></div>
+              )}
+            </>
           ) : (
-            <div dangerouslySetInnerHTML={{ __html: presentlyData }}></div>
+            <>
+              <div
+                onClick={() => handleShowSection('presently')}
+                className="icons_click_wrapper"
+              >
+                <p>Click here to see more?</p>
+                <FaAngleDoubleDown className="angel-down-icon" size={22} />
+              </div>
+            </>
           )}
-        </>
-      ) : (
-        <>
-          <div
-            onClick={() => handleShowSection('presently')}
-            className="icons_click_wrapper"
-          >
-            <p>Click here to see more?</p>
-            <FaAngleDoubleDown className="angel-down-icon" size={22} />
-          </div>
-        </>
-      )}
-
-      <h2>Recent Past</h2>
-      {recentPastError ? (
-        <ToasterComponent options={{ recentPastError }} />
-      ) : null}
-      {showRecentPast ? (
-        <>
-          <div
-            onClick={() => handleShowSection('recentPast')}
-            className="icons_click_wrapper"
-          >
-            <p>Done reading?</p>{' '}
-            <FaAngleDoubleUp className="angel-up-icon" size={22} />
-          </div>
-
-          {recentPastLoading ? (
-            <SpinnerComponent />
-          ) : (
-            <div dangerouslySetInnerHTML={{ __html: recentPastData }}></div>
-          )}
-        </>
-      ) : (
-        <>
-          <div
-            onClick={() => handleShowSection('recentPast')}
-            className="icons_click_wrapper"
-          >
-            <p>Click here to see more?</p>
-            <FaAngleDoubleDown className="angel-down-icon" size={22} />
-          </div>
-        </>
-      )}
-
-      <h2>Obscure</h2>
-      {error ? <ToasterComponent options={{ error }} /> : null}
-      {showNews ? (
-        <>
-          <div
-            onClick={() => handleShowSection('news')}
-            className="icons_click_wrapper"
-          >
-            <p>Done reading?</p>{' '}
-            <FaAngleDoubleUp className="angel-up-icon" size={22} />
-          </div>
-
-          {loading ? (
-            <SpinnerComponent />
-          ) : (
-            <div dangerouslySetInnerHTML={{ __html: data }}></div>
-          )}
-        </>
-      ) : (
-        <div
-          onClick={() => handleShowSection('news')}
-          className="icons_click_wrapper"
-        >
-          <p>Click here to see more?</p>
-          <FaAngleDoubleDown className="angel-down-icon" size={22} />
         </div>
-      )}
+
+        <div>
+          <h2>Recent Past</h2>
+          {recentPastError ? (
+            <ToasterComponent options={{ recentPastError }} />
+          ) : null}
+          {showRecentPast ? (
+            <>
+              <div
+                onClick={() => handleShowSection('recentPast')}
+                className="icons_click_wrapper"
+              >
+                <p>Done reading?</p>{' '}
+                <FaAngleDoubleUp className="angel-up-icon" size={22} />
+              </div>
+
+              {recentPastLoading ? (
+                <SpinnerComponent />
+              ) : (
+                <div dangerouslySetInnerHTML={{ __html: recentPastData }}></div>
+              )}
+            </>
+          ) : (
+            <>
+              <div
+                onClick={() => handleShowSection('recentPast')}
+                className="icons_click_wrapper"
+              >
+                <p>Click here to see more?</p>
+                <FaAngleDoubleDown className="angel-down-icon" size={22} />
+              </div>
+            </>
+          )}
+        </div>
+
+        <div>
+          <h2>Obscure</h2>
+          {error ? <ToasterComponent options={{ error }} /> : null}
+          {showNews ? (
+            <>
+              <div
+                onClick={() => handleShowSection('news')}
+                className="icons_click_wrapper"
+              >
+                <p>Done reading?</p>{' '}
+                <FaAngleDoubleUp className="angel-up-icon" size={22} />
+              </div>
+
+              {loading ? (
+                <SpinnerComponent />
+              ) : (
+                <div dangerouslySetInnerHTML={{ __html: data }}></div>
+              )}
+            </>
+          ) : (
+            <div
+              onClick={() => handleShowSection('news')}
+              className="icons_click_wrapper"
+            >
+              <p>Click here to see more?</p>
+              <FaAngleDoubleDown className="angel-down-icon" size={22} />
+            </div>
+          )}
+        </div>
+      </div>
     </fieldset>
   );
 };
