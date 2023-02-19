@@ -6,6 +6,9 @@ import {
   GET_PRESENTLY_FAILURE,
   GET_PRESENTLY_REQUEST,
   GET_PRESENTLY_SUCCESS,
+  GET_RECENT_PAST_FAILURE,
+  GET_RECENT_PAST_REQUEST,
+  GET_RECENT_PAST_SUCCESS,
 } from '../Constants/fileUploadConstants';
 
 //GET: MY NEWS after uploads
@@ -44,6 +47,28 @@ export const presentlyAction = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: GET_PRESENTLY_FAILURE,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+//GET: MY NEWS after uploads
+export const recentPastAction = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: GET_RECENT_PAST_REQUEST,
+    });
+
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_END_POINT}api/recent-past`,
+    );
+    dispatch({ type: GET_RECENT_PAST_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: GET_RECENT_PAST_FAILURE,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
