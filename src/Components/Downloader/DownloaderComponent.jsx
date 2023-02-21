@@ -6,7 +6,7 @@ import ToasterComponent from '../Toaster/ToasterComponent';
 
 const DownloaderComponent = ({ id }) => {
   const dispatch = useDispatch();
-  const cvUrl = `${process.env.REACT_APP_CV_URL}assets/cv/dummy.pdf`;
+  const cvUrl = `${process.env.REACT_APP_CV_URL}assets/cv/cv.pdf`;
   const handleDownload = (cvUrl) => {
     const aTag = document.createElement('a');
     const fileName = cvUrl.split('/').pop();
