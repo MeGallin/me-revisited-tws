@@ -62,6 +62,7 @@ const HeaderComponent = () => {
                 onClick={handleNavigation}
                 className={(navData) => (navData.isActive ? 'active' : '')}
                 to="/"
+                data-cy="header-home-link"
               >
                 <TellMeComponent text={['H', 'ome']} />
               </NavLink>
@@ -71,6 +72,7 @@ const HeaderComponent = () => {
                 onClick={handleNavigation}
                 className={(navData) => (navData.isActive ? 'active' : '')}
                 to="/about"
+                data-cy="header-about-link"
               >
                 <TellMeComponent text={['ab', 'out']} />
               </NavLink>
@@ -80,6 +82,7 @@ const HeaderComponent = () => {
                 onClick={handleNavigation}
                 className={(navData) => (navData.isActive ? 'active' : '')}
                 to="/my-work"
+                data-cy="header-my-work-link"
               >
                 <TellMeComponent text={['m', 'y', ' w', 'o', 'rk']} />
               </NavLink>
@@ -89,6 +92,7 @@ const HeaderComponent = () => {
                 onClick={handleNavigation}
                 className={(navData) => (navData.isActive ? 'active' : '')}
                 to="/contact"
+                data-cy="header-contact-link"
               >
                 <TellMeComponent text={['con', 't', 'act']} />
               </NavLink>
@@ -101,6 +105,7 @@ const HeaderComponent = () => {
                     onClick={handleNavigation}
                     className={(navData) => (navData.isActive ? 'active' : '')}
                     to="/dashboard"
+                    data-cy="header-dashboard-link"
                   >
                     <TellMeComponent text={['dashBoard']} />
                   </NavLink>
@@ -120,6 +125,7 @@ const HeaderComponent = () => {
                     onClick={handleNavigation}
                     className={(navData) => (navData.isActive ? 'active' : '')}
                     to="/cv"
+                    data-cy="header-cv-link"
                   >
                     <TellMeComponent text={['c', 'V']} />
                   </NavLink>
