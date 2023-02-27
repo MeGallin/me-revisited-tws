@@ -59,7 +59,8 @@ const ContactComponent = () => {
 
             <form onSubmit={handleSubmitContactForm}>
               <InputComponent
-                label="Name"
+                id="name"
+                label="name"
                 value={name}
                 type="text"
                 name="name"
@@ -73,7 +74,8 @@ const ContactComponent = () => {
                 onChange={handleOnChange}
               />
               <InputComponent
-                label="EMAIL"
+                id="email"
+                label="email"
                 value={email}
                 type="email"
                 name="email"
@@ -106,7 +108,7 @@ const ContactComponent = () => {
                   !nameRegEx.test(name) ||
                   message.length <= 8
                     ? 'Disabled'
-                    : 'Submit your Enquiry'
+                    : 'Submit your enquiry'
                 }
                 variant={
                   !emailRegEx.test(email) ||
