@@ -24,15 +24,13 @@ const ToasterComponent = ({ options }) => {
     setError(undefined);
     setSuccess(undefined);
   };
-
+  const className = `toaster animate__animated animate__bounceInLeft ${
+    success ? 'success' : error ? 'error' : ''
+  }`;
   return (
     <>
       {success || error ? (
-        <div
-          className={`toaster animate__animated animate__bounceInLeft ${
-            success ? 'success' : null
-          } || ${error ? 'error' : null} `}
-        >
+        <div cy-data="toaster" className={className}>
           <div className="toaster_content">
             {success ? (
               <>

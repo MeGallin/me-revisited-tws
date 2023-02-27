@@ -41,7 +41,7 @@ const InputComponent = ({
   return (
     <>
       <div className="input-icon-wrapper">
-        {label && <label htmlFor="input-field">{label}</label>}
+        {label && <label htmlFor={`input-field-${label}`}>{label}</label>}
         {onlyPassword ? (
           <div
             onClick={() => handleShowHidePw()}
