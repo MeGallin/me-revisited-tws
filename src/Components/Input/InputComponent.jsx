@@ -47,7 +47,11 @@ const InputComponent = ({
             onClick={() => handleShowHidePw()}
             title={!showPassword ? 'SHOW PASSWORD' : 'HIDE PASSWORD'}
           >
-            {!showPassword ? <FaEye /> : <FaEyeSlash />}
+            {!showPassword ? (
+              <FaEye cy-data="faEye" />
+            ) : (
+              <FaEyeSlash cy-data="faEyeSlash" />
+            )}
           </div>
         ) : null}
       </div>

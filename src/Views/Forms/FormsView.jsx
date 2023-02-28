@@ -20,16 +20,18 @@ const FormsView = () => {
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         {showForgotPw ? null : (
           <ButtonComponent
+            id="showRegisterForm"
             type="button"
-            text={showRegisterForm ? 'Login?' : 'Register?'}
+            text={showRegisterForm ? 'login?' : 'register?'}
             variant="dark"
             disabled={false}
             onClick={setShowRegisterForm}
           />
         )}
         <ButtonComponent
+          id="showForgotPw"
           type="button"
-          text={showForgotPw ? 'Back to login' : ' Forgot Password'}
+          text={showForgotPw ? 'back to login?' : 'forgot password?'}
           variant="dark"
           disabled={false}
           onClick={setShowForgotPw}
