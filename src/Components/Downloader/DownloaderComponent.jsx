@@ -6,7 +6,7 @@ import ToasterComponent from '../Toaster/ToasterComponent';
 
 const DownloaderComponent = ({ id }) => {
   const dispatch = useDispatch();
-  const cvUrl = `${process.env.REACT_APP_CV_URL}assets/cv/cv.pdf`;
+  const cvUrl = `${process.env.REACT_APP_CV_URL}assets/cv/GACVJan2023.pdf`;
   const handleDownload = (cvUrl) => {
     const aTag = document.createElement('a');
     const fileName = cvUrl.split('/').pop();
@@ -38,8 +38,8 @@ const DownloaderComponent = ({ id }) => {
           <div style={{ margin: '1rem 0' }}>
             <ButtonComponent
               type="button"
-              disabled={true}
-              variant="warning"
+              disabled={false}
+              variant="info"
               text="Download My CV"
               onClick={() => handleDownload(cvUrl)}
             />
