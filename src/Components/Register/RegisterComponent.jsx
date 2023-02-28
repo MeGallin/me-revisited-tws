@@ -54,7 +54,8 @@ const RegisterComponent = () => {
 
           <form onSubmit={handleRegistrationSubmit}>
             <InputComponent
-              label="Name"
+              id="name"
+              label="name"
               value={name}
               type="text"
               name="name"
@@ -69,7 +70,8 @@ const RegisterComponent = () => {
             />
 
             <InputComponent
-              label="Email"
+              id="email"
+              label="email"
               type="email"
               name="email"
               value={email}
@@ -83,7 +85,8 @@ const RegisterComponent = () => {
             />
 
             <InputComponent
-              label="Password"
+              id="password"
+              label="password"
               type="password"
               name="password"
               value={password}
@@ -99,13 +102,14 @@ const RegisterComponent = () => {
 
             <div>
               <ButtonComponent
+                id="submit"
                 type="submit"
                 text={
                   !emailRegEx.test(email) ||
                   !nameRegEx.test(name) ||
                   password.length <= 5
-                    ? 'Disabled'
-                    : 'Register'
+                    ? 'disabled'
+                    : 'register'
                 }
                 variant={
                   !emailRegEx.test(email) ||

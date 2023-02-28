@@ -90,7 +90,8 @@ const LoginComponent = () => {
           ) : null}
           <form onSubmit={handleLoginSubmit}>
             <InputComponent
-              label="Email"
+              id="email"
+              label="email"
               type="email"
               name="email"
               value={email}
@@ -98,7 +99,8 @@ const LoginComponent = () => {
               onChange={handleOnchange}
             />
             <InputComponent
-              label="Password"
+              id="password"
+              label="password"
               type="password"
               name="password"
               value={password}
@@ -109,11 +111,12 @@ const LoginComponent = () => {
 
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <ButtonComponent
+                id="submit"
                 type="submit"
                 text={
                   !emailRegEx.test(email) || password.length <= 5
-                    ? 'Disabled'
-                    : 'Login'
+                    ? 'disabled'
+                    : 'login'
                 }
                 variant="dark"
                 disabled={!emailRegEx.test(email) || password.length <= 5}

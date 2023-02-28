@@ -16,6 +16,7 @@ const CvComponent = () => {
           <h1>Take a peek</h1>
           <NavLink to="/forms">
             <ButtonComponent
+              id="login_register"
               type="button"
               text="login or register"
               variant="info"
