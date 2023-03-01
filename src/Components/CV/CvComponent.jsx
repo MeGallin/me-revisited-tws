@@ -5,6 +5,7 @@ import TimeLineComponent from '../TimeLine/TimeLineComponent';
 import { cvData } from '../../assets/data/cv_data';
 
 const CvComponent = () => {
+  console.log(cvData);
   return (
     <fieldset className="fieldSet">
       <legend>

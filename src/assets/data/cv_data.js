@@ -1,6 +1,24 @@
+const randomId = (length) => {
+  const characters = '0123456789abcdefghijklmnopqrstxyzABCDEFGHIJKLMNOPQRSTXYZ';
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+};
+
 export const cvData = [
   {
-    id: 1,
+    id: randomId(8),
+    dateBool: true,
+    date: '2023',
+    company: 'Body Vanatge',
+    position: 'Full-Stack Developer',
+    tech: 'MERN',
+    term: 'Jan-present',
+  },
+  {
+    id: randomId(8),
     dateBool: true,
     date: '2022',
     company: 'Body Vanatge',
@@ -9,7 +27,7 @@ export const cvData = [
     term: 'Jan-Dec',
   },
   {
-    id: 2,
+    id: randomId(8),
     dateBool: true,
     date: '2021',
     company: 'Body Vantage',
@@ -18,7 +36,7 @@ export const cvData = [
     term: 'Jun-Dec',
   },
   {
-    id: 3,
+    id: randomId(8),
     dateBool: false,
     date: '2021',
     company: 'Fotech Solutions (BP)',
@@ -27,7 +45,7 @@ export const cvData = [
     term: 'Jan-May',
   },
   {
-    id: 4,
+    id: randomId(8),
     dateBool: true,
     date: '2020',
     company: 'Fotech Solutions (BP)',
@@ -36,7 +54,7 @@ export const cvData = [
     term: 'Apr-Dec',
   },
   {
-    id: 5,
+    id: randomId(8),
     dateBool: false,
     date: '2020',
     company: 'Deptuti AI',
@@ -45,7 +63,7 @@ export const cvData = [
     term: 'Jan-Mar',
   },
   {
-    id: 6,
+    id: randomId(8),
     dateBool: true,
     date: '2019',
     company: 'Deptuti AI',
