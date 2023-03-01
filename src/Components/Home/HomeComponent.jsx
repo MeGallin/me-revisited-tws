@@ -1,13 +1,11 @@
 import TellMeComponent from '../TellMe/TellMeComponent';
 import TextHighLightComponent from '../TextHighLight/TextHighLightComponent';
-import BetaReleaseComponent from '../BetaRelease/BetaReleaseComponent';
 
 const HomeComponent = () => {
   const thisIsMe = ['Wh', 'at', ' I', ' Do!'];
 
   return (
     <fieldset className="fieldSet">
-      <BetaReleaseComponent />
       <legend>
         <TellMeComponent text={[...thisIsMe]} />
       </legend>
